@@ -6,32 +6,8 @@ import {appendResult, clearResults} from '../actions/actions.js';
 import ndarray from 'ndarray';
 import interp from 'ndarray-linear-interpolate';
 
-const tempOptions = [
-    {
-        label: '22 \xB0C',
-        value: 22
-    },
-    {
-        label: '200 \xB0C',
-        value: 200
-    },
-    {
-        label: '400 \xB0C',
-        value: 400
-    },
-    {
-        label: '600 \xB0C',
-        value: 600
-    },
-    {
-        label: '800 \xB0C',
-        value: 800
-    },
-    {
-        label: '1000 \xB0C',
-        value: 1000
-    }
-];
+import {tempOptions} from './_selectOptions.js';
+
 const formValidator = (values) => {
         return({
             r: (Number(values.r) >= 14 && Number(values.r) <= 22)? null : 'R not correct',
@@ -172,28 +148,24 @@ class Calculate extends Component {
                         validateError = {formValidator}
                     >
                         {formApi => (
-                            <form onSubmit = {formApi.submitForm} id = 'form'>
-                                <Text id ='r' field = 'r'/>
-                                <Text id ='h' field = 'h'/>
+                            <form onSubmit = {formApi.submitForm} >
+                                <Text field = 'r'/>
+                                <Text field = 'h'/>
                                 <Select field = 't' options={tempOptions}/>
-                                <button type="submit">Submit</button>
+                                <button type="submit">Calculate</button>
                                 <button type = 'button' onClick = {this.props.clearResults}>Clear calculated data</button>
                                 <p>{formApi.submits>0 ? formApi.errors.r : null}</p>
                                 <p>{formApi.submits>0 ? formApi.errors.h : null}</p>
-                                <p> {formApi.submits>0 ? formApi.errors.t : null}</p>
-
+                                <p>{formApi.submits>0 ? formApi.errors.t : null}</p>
                             </form>        
                         )}    
                     </Form>
-
                 </div>
                 {(this.props.data && this.props.results.length > 0) ? this.rednerResults(this.props.data, this.props.results) : <p>No results to display</p>}
             </div>
         );
     }
 };
-
-
 
 function mapStateToProps(state) {
     return({
