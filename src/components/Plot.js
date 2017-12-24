@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Form, Select} from 'react-form';
-
+import {updatePlot} from '../actions/actions.js';
 import {tempOptions, thicknessOptions, radiusOptions, plotOptions, interpOptions} from './_selectOptions.js';
+import Plot3D from './Plot3D.js';
 
 
-export default class Plot extends Component{
+class Plot extends Component{
 
     renderSecondSelect(type) {
         switch (type) {
@@ -40,7 +42,7 @@ export default class Plot extends Component{
                 <div>
                     <Form
                         onSubmit = {(values) => {
-                            console.log(values)
+                            this.props.updatePlot(values);
                         }}
 
                         defaultValues = {{interp: 0, type: 1, r: 14, h: 0.1, t: 22}}
@@ -65,8 +67,21 @@ export default class Plot extends Component{
                         )}
                     </Form>
                 </div>
+                <Plot3D />
             </div>
     );
     }
 
 };
+
+function mapStateToProps(state) {
+    return({
+        plot: state.plot,
+        data: state.data
+    });
+}
+const mapDispatchToProps = {
+    updatePlot
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Plot);
