@@ -138,7 +138,7 @@ class Calculate extends Component {
     render() {
 
         return (
-            <div className = 'calculate'>
+            <div className = 'container calculate'>
                 <h1>calculate</h1>
                 <div>
                     <Form

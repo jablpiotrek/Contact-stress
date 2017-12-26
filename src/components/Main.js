@@ -16,6 +16,7 @@ import Plot from './Plot.js';
 import Data from './Data.js';
 import About from './About.js';
 
+import '../style/css/Main.css';
 
 const PATH = './data.txt';
 
@@ -47,7 +48,7 @@ class Main extends Component {
 
         return(
             <Router>
-                <div>
+                <div className = 'main'>
                     <nav>
                         <ul>
                             <li><Link to = '/'>Home</Link></li>

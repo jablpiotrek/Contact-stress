@@ -37,7 +37,7 @@ class Plot extends Component{
     }
     render(){
         return (
-            <div className = 'plot'>
+            <div className = 'container plot'>
                 <h1>plot</h1>
                 <div>
                     <Form
