@@ -10,9 +10,8 @@ import {tempOptions} from './_selectOptions.js';
 
 const formValidator = (values) => {
         return({
-            r: (Number(values.r) >= 14 && Number(values.r) <= 22)? null : 'R not correct',
-            h: (Number(values.h) >= 0.1 && Number(values.h) <= 0.3)? null : 'H not correct',
-            t: (Number(values.t) >= 22 ) ? null : 'select temp'
+            r: (Number(values.r) >= 14 && Number(values.r) <= 22)? null : 'Radius must be between 14.0 and 22.0 (inclusive).',
+            h: (Number(values.h) >= 0.1 && Number(values.h) <= 0.3)? null : 'Height must be between 0.1 and 0.3 (inclusive).'
         });
     }
 
@@ -23,7 +22,6 @@ class Calculate extends Component {
         this.sendResultsToStore = this.sendResultsToStore.bind(this);
         this.calculateResults = this.calculateResults.bind(this);
     }
-
 
     calculateResults(rawData, r, h, t){
         //Firstly, filter records that include selected temperature, and remove records with r1!== r2
@@ -136,32 +134,48 @@ class Calculate extends Component {
         );
     }
     render() {
-
+        const noResults = 'No reslult to display. Set input values and hit "Calculate"!';
         return (
             <div className = 'container calculate'>
-                <h1>calculate</h1>
-                <div>
+                <h2>Calculate</h2>
                     <Form
                         onSubmit = {values => {
                             this.sendResultsToStore(values.r, values.h, values.t, this.calculateResults(this.props.data, values.r, values.h, values.t));
                         }}
                         validateError = {formValidator}
+                        defaultValues = {{t:22}}
                     >
                         {formApi => (
                             <form onSubmit = {formApi.submitForm} >
-                                <Text field = 'r'/>
-                                <Text field = 'h'/>
-                                <Select field = 't' options={tempOptions}/>
-                                <button type="submit">Calculate</button>
-                                <button type = 'button' onClick = {this.props.clearResults}>Clear calculated data</button>
-                                <p>{formApi.submits>0 ? formApi.errors.r : null}</p>
-                                <p>{formApi.submits>0 ? formApi.errors.h : null}</p>
-                                <p>{formApi.submits>0 ? formApi.errors.t : null}</p>
+                                <div>
+                                    <h3>Coating geometry</h3>
+                                    <div>
+                                        <label htmlFor = 'r'>Curvature radius (14-22 mm): </label>
+                                        <Text field = 'r'/>
+                                        <label>{formApi.submits>0 ? formApi.errors.r : null}</label>
+                                    </div>
+                                    <div>
+                                        <label htmlFor = 'h'>Coating tickness (0.1-0.3 mm): </label>
+                                        <Text field = 'h'/>
+                                        <label htmlFor = 'h'>{formApi.submits>0 ? formApi.errors.h : null}</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Temperature gradient peak</h3>
+                                    <label htmlFor = 't'>Temperature: </label>
+                                    <Select field = 't' options={tempOptions}/>
+                                </div>
+                                <div>
+                                    <button type="submit">Calculate</button>
+                                    <button type = 'button' onClick = {this.props.clearResults}>Clear calculated data</button>
+                                </div>
                             </form>        
                         )}    
-                    </Form>
+                        </Form>
+                <div>
+                    {(this.props.data && this.props.results.length > 0) ? this.rednerResults(this.props.data, this.props.results) : <p>{noResults}</p>}
                 </div>
-                {(this.props.data && this.props.results.length > 0) ? this.rednerResults(this.props.data, this.props.results) : <p>No results to display</p>}
+
             </div>
         );
     }

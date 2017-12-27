@@ -13,13 +13,13 @@ class Plot extends Component{
             case 1:
                 return (
                     <div>
-                        <p>Select temperature:</p>
+                        <label htmlFor = 't'>Select temperature gradient peak:</label>
                         <Select field = 't' options = {tempOptions} />
                     </div>);
             case 2:
                 return (
                     <div>
-                        <p>Select coating thickness:</p>
+                        <label htmlFor = 'h'>Select coating thickness:</label>
                         <Select field = 'h' options = {thicknessOptions} />
                     </div>
                 );
@@ -27,46 +27,54 @@ class Plot extends Component{
             case 3:
                 return (
                     <div>
-                        <p>Select coating curvature:</p>
+                        <label htmlFor = 'r'>Select coating curvature radius:</label>
                         <Select field = 'r' options = {radiusOptions}/>
                     </div>
                 );
             default:
-                return <p>Select type of plot...</p>
+                return(
+                    <div>
+                        <p>Select type of plot...</p>
+                    </div>
+                );
         }
     }
     render(){
         return (
             <div className = 'container plot'>
-                <h1>plot</h1>
-                <div>
+                <h2>Plot</h2>
                     <Form
                         onSubmit = {(values) => {
                             this.props.updatePlot(values);
                         }}
-
                         defaultValues = {{interp: 0, type: 1, r: 14, h: 0.1, t: 22}}
                     >
                         {formApi => (
                             <form onSubmit =  {formApi.submitForm}>
-
-                                <Select
-                                    field = 'type'
-                                    options = {plotOptions}
-                                />
-                                 {this.renderSecondSelect(formApi.getFormState().values.type)}
-                                <Select
-                                    field = 'interp'
-                                    options = {interpOptions}
-                                />
-                                <p>{(formApi.submits > 0) ? formApi.errors.err : null}</p>
-                                <button type = 'submit'>Draw Plot</button>
+                                <div>
+                                    <h3>Plot properites</h3>
+                                    <div>
+                                        <label htmlFor="type">Select type of charts:</label>
+                                        <Select
+                                            field = 'type'
+                                            options = {plotOptions}
+                                        />
+                                    </div>
+                                    {this.renderSecondSelect(formApi.getFormState().values.type)}
+                                    <div>
+                                        <label htmlFor="interp">Select interpolation level:</label>
+                                        <Select
+                                            field = 'interp'
+                                            options = {interpOptions}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type = 'submit'>Draw Plot</button>
+                                </div>
                             </form>
-
-
                         )}
                     </Form>
-                </div>
                 <Plot3D />
             </div>
     );

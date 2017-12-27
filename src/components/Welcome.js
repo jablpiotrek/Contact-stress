@@ -10,12 +10,10 @@ export default class Welcome extends Component {
             slidesToScroll: 1,
             arrows: true,
             dots: true
-
-
         };
         return (
             <div className = 'welcome container'>
-                <h1>Welcome</h1>
+                <h2>Welcome</h2>
 
                 <Slider {...settings}>
                     <div>

@@ -134,14 +134,15 @@ class Plot3D extends Component {
             for (let i = 0; i < this.props.data.data[0].length - 5; i++) {
                 plotContainers.push(
                     <div key = {i}>
-                        <h3>{this.props.data.data[0][5 + i]}</h3>
+                        <h4>{this.props.data.data[0][5 + i]}</h4>
                         <div id = {'plot3d_' + i}></div>
                     </div>);
             }
         }
 
         return(
-        <div className = 'plot3d' >
+        <div>
+            <h3>Plots</h3>
             {plotContainers}
 
         </div>

@@ -39,15 +39,22 @@ class Data extends Component {
     render() {
         return (
             <div className = 'data'>
-                <h1>Data</h1>
-                <input type = 'file' onChange = {this.handeFileAdded} />
-                <table>
-                    <tbody>{(this.props.data) ? this.renderTableData(this.props.data)  : null }</tbody>
-                </table>
+                <h2>Data</h2>
+                <div>
+                    <h3>File upload</h3>
+                    <p>To change working data, upload .csv file. Data format in given file must be an untouched Ansys parameter set export.</p>
+                    <label>Upload .csv Ansys export file: </label>
+                    <input type = 'file' onChange = {this.handeFileAdded} />
+                </div>
+                <div>
+                    <h3>Current data state</h3>
+                    <table>
+                        <tbody>{(this.props.data) ? this.renderTableData(this.props.data)  : null}</tbody>
+                    </table>
+                </div>
             </div>
         ); 
     }
-    
 }
 function mapStateToProps(state) {
     return({data: state.data});
@@ -55,5 +62,4 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
     updateData
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(Data);
