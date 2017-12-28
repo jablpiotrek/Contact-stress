@@ -4,7 +4,7 @@ import {Form, Select} from 'react-form';
 import {updatePlot} from '../actions/actions.js';
 import {tempOptions, thicknessOptions, radiusOptions, plotOptions, interpOptions} from './_selectOptions.js';
 import Plot3D from './Plot3D.js';
-import interpolateArray from '../externals/interpolate_array.js';
+
 
 class Plot extends Component{
 
@@ -38,21 +38,6 @@ class Plot extends Component{
                     </div>
                 );
         }
-    }
-    componentDidMount() {
-        let data = [
-            {x: 10, y:1, z:0},
-            {x: 10, y:2, z:1},
-            {x: 10, y:3, z:2},
-            {x: 20, y:1, z:3},
-            {x: 20, y:2, z:4},
-            {x: 20, y:3, z:5},
-            {x: 30, y:1, z:6},
-            {x: 30, y:2, z:7},
-            {x: 30, y:3, z:8}
-        ]
-        interpolateArray(data,0);
-
     }
     render(){
         return (

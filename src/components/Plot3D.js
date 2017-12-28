@@ -119,14 +119,20 @@ class Plot3D extends Component {
                 break;
         }
         const options = {
-            width: '800px',
-            height: '600px',
+            cameraPosition:
+                {
+                    distance: 2
+                },
+            width: '600px',
+            height: '400px',
             style: 'surface',
+            keepAspectRatio: false,
+            tooltip: true,
             showPerspective: true,
             showGrid: true,
             showShadow: false,
-            keepAspectRatio: false,
-            verticalRatio: 0.6,
+            yCenter: '40%',
+            verticalRatio: 0.4,
             xLabel: xLabel,
             yLabel: yLabel,
             zLabel: 'MPa'
