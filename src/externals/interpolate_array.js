@@ -2,6 +2,28 @@ import spline from 'cubic-spline';
 import splitArray from 'split-array';
 
 export default function interpolateArray(data, n) {
+    function interpoalateDirection(axis, Z, n) {
+        let ZNew = [];
+        for (let i = 0; i < Z.length - 1; i++) {
+            ZNew.push(Z[i]);
+            for (let j = 0; j < n; j++) {
+                ZNew.push(spline(axis[i] + (axis[i + 1] - axis[i]) / (n + 1) * (j + 1), axis, Z));
+            }
+        }
+        ZNew.push(Z[Z.length - 1]);
+        return ZNew;
+    }
+    function interpolateAxis(axis, n) {
+        let newAxis = [];
+        for (let i = 0; i < axis.length - 1; i++) {
+            newAxis.push(axis[i]);
+            for (let j = 0; j < n; j++) {
+                newAxis.push(axis[i] + (axis[i + 1] - axis[i]) / (n + 1) * (j + 1));
+            }
+        }
+        newAxis.push(axis[axis.length - 1]);
+        return newAxis;
+    }
     /*data = [
         {x: x1, y:y1, z:z1},
         {x: xn, y:yn, z:zn}
@@ -17,7 +39,6 @@ export default function interpolateArray(data, n) {
         etc.
      ]
     */
-
     //dissasemble object
     let X = [];
     let Y = [];
@@ -25,111 +46,52 @@ export default function interpolateArray(data, n) {
     let X2 = [];
     let Y2 = [];
     let Z2 = [];
+    let Z3 = [];
     let dataInt = [];
-    let dataInt2 = [];
-
     data.map((record) => {
         if (X.indexOf(record.x) === -1) {
             X.push(record.x)
         }
-        return(record);
+        return (record);
     });
-
     data.map((record) => {
         if (Y.indexOf(record.y) === -1) {
             Y.push(record.y)
         }
-        return(record);
+        return (record);
     });
     Z = data.map((record) => {
         return record.z;
     })
-    Z = splitArray(Z, X.length);
-    console.log(data);
-    console.log(Z);
-
-
-    //Interpolate array in frist direction
-
-    for (var i = 0; i < Y.length; i++) {
-        for (var j = 0; j < X.length; j++) {
+    Z = splitArray(Z, X.length);;
+    let interpColumns = [];
+    for (let i = 0; i < Y.length; i++) {
+        let tempZ = [];
+        for (let j = 0; j < X.length; j++) {
+            tempZ.push(Z[j][i]);
+        }
+        interpColumns.push(interpoalateDirection(X, tempZ, n));
+    }
+    for (let i = 0; i < interpColumns[0].length; i++) {
+        let row = [];
+        for (let j = 0; j < interpColumns.length; j++) {
+            row.push(interpColumns[j][i]);
+        }
+        Z2.push(row);
+    }
+    Z3 = Z2.map(row => {
+        return (interpoalateDirection(Y, row, n));
+    });
+    X2 = interpolateAxis(X, n);
+    Y2 = interpolateAxis(Y, n);
+    for (let x = 0; x < X2.length; x++) {
+        for (let y = 0; y < Y2.length; y++) {
             dataInt.push({
-                x: X[j],
-                y: Y[i],
-                z: Z[i][j]
+                x: X2[x],
+                y: Y2[y],
+                z: Z3[x][y]
             });
-            for (var k = 0; k < n; k++) {
-                let deltaX = (X[j + 1] - X[j]) / (n + 1);
-                let zInt = spline((X[j] + deltaX * (k + 1)), X, Z[i]);
-                if (!isNaN(zInt)) {
-                    dataInt.push({
-                        x: X[j] + deltaX * (k + 1),
-                        y: Y[i],
-                        z: zInt
-                    });
-                };
-            }
         }
-
     }
-
-    //interpolate array in second direction
-
-    dataInt.map((record) => {
-        if (X2.indexOf(record.x) === -1) {
-            X2.push(record.x)
-        }
-        return(record);
-    });
-    dataInt.map((record) => {
-        if (Y2.indexOf(record.y) === -1) {
-            Y2.push(record.y)
-        }
-        return(record);
-    });
-    Z2 = dataInt.map((record) => {
-        return record.z;
-    })
-
-    Z2 = splitArray(Z2, X2.length);
-
-    //transpose Z2
-    let Z2Inv = [];
-    for (var i2 = 0; i2 < X2.length; i2++) {
-        let Z2InvRow = [];
-        for (var j2 = 0; j2 < Y2.length; j2++) {
-            Z2InvRow.push(Z2[j2][i2]);
-        }
-        Z2Inv.push(Z2InvRow);
-    }
-
-    for (var l = 0; l < X2.length; l++) {
-        for (var m = 0; m < Y2.length; m++) {
-            dataInt2.push({
-                x: X2[l],
-                y: Y2[m],
-
-
-
-                z: Z2[m][l]
-            });
-            for (var o = 0; o < n; o++) {
-                let deltaY2 = (Y2[m + 1] - Y2[m]) / (n + 1);
-                let z2Int = spline(Y2[m] + deltaY2 * (o + 1), Y2, Z2Inv[l]);
-                if (!isNaN(z2Int)) {
-                    dataInt2.push({
-                        x: X2[l],
-                        y: Y2[m] + deltaY2 * (o + 1),
-
-
-                        z: z2Int
-                    });
-                }
-            }
-        }
-    };
-
-    let result = null;
-    if (n > 0 ) {result = dataInt2} else {result = data};
-   return result;
+    return dataInt;
 };
