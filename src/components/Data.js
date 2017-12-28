@@ -42,8 +42,8 @@ class Data extends Component {
                 <h2>Data</h2>
                 <div>
                     <h3>File upload</h3>
-                    <p>To change working data, upload .csv file. Data format in given file must be an untouched Ansys parameter set export.</p>
-                    <label>Upload .csv Ansys export file: </label>
+                    <p>To change working data, upload .csv or .txt file. Data format in given file must be same as in an untouched Ansys parameter set export.</p>
+                    <label>Upload .csv or .txt Ansys export file: </label>
                     <input type = 'file' onChange = {this.handeFileAdded} />
                 </div>
                 <div>

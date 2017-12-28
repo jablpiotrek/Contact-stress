@@ -41,11 +41,13 @@ export default function interpolateArray(data, n) {
         }
         return(record);
     });
-
     Z = data.map((record) => {
         return record.z;
     })
     Z = splitArray(Z, X.length);
+    console.log(data);
+    console.log(Z);
+
 
     //Interpolate array in frist direction
 
@@ -104,8 +106,11 @@ export default function interpolateArray(data, n) {
     for (var l = 0; l < X2.length; l++) {
         for (var m = 0; m < Y2.length; m++) {
             dataInt2.push({
-                y: X2[l],
-                x: Y2[m],
+                x: X2[l],
+                y: Y2[m],
+
+
+
                 z: Z2[m][l]
             });
             for (var o = 0; o < n; o++) {
@@ -113,14 +118,17 @@ export default function interpolateArray(data, n) {
                 let z2Int = spline(Y2[m] + deltaY2 * (o + 1), Y2, Z2Inv[l]);
                 if (!isNaN(z2Int)) {
                     dataInt2.push({
-                        y: X2[l],
-                        x: Y2[m] + deltaY2 * (o + 1),
+                        x: X2[l],
+                        y: Y2[m] + deltaY2 * (o + 1),
+
+
                         z: z2Int
                     });
                 }
             }
         }
     };
+
     let result = null;
     if (n > 0 ) {result = dataInt2} else {result = data};
    return result;

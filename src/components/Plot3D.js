@@ -97,8 +97,28 @@ class Plot3D extends Component {
     }
 
 
-    renderPlot(plot) {
-        var options = {
+    renderPlot(plot, type) {
+        let xLabel = null;
+        let yLabel = null;
+        switch (type) {
+            case 1:
+                xLabel = 'Coating radius [mm]';
+                yLabel = 'Coating thickness [mm]';
+                break;
+            case 2:
+                xLabel = 'Coating radius [mm]';
+                yLabel = 'Temperature [\xB0C]';
+                break;
+            case 3:
+                xLabel = 'Coating thickness [mm]';
+                yLabel = 'Temperature [\xB0C]';
+                break;
+            default:
+                xLabel = 'x';
+                yLabel = 'y';
+                break;
+        }
+        const options = {
             width: '800px',
             height: '600px',
             style: 'surface',
@@ -106,12 +126,18 @@ class Plot3D extends Component {
             showGrid: true,
             showShadow: false,
             keepAspectRatio: false,
-            verticalRatio: 0.6
+            verticalRatio: 0.6,
+            xLabel: xLabel,
+            yLabel: yLabel,
+            zLabel: 'MPa'
         };
-        let graph3d = []
+        let graph3d = [];
+
         for (let i = 0; i < plot.titles.length; i++) {
             let container = document.getElementById('plot3d_' + i);
+
             graph3d.push(new Graph3d(container, plot.data[i], options));
+
         }
 
 
@@ -121,10 +147,12 @@ class Plot3D extends Component {
 
         if (this.props.data && this.props.plot) {
             let plot = this.prepareDataForPlot3D(this.props.data, this.props.plot);
-            this.renderPlot(plot);
+            this.renderPlot(plot, this.props.plot.type);
+
 
         }
     }
+
 
 
     render(){
@@ -136,6 +164,7 @@ class Plot3D extends Component {
                     <div key = {i}>
                         <h4>{this.props.data.data[0][5 + i]}</h4>
                         <div id = {'plot3d_' + i}></div>
+
                     </div>);
             }
         }
