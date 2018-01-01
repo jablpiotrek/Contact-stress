@@ -2,14 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Papa from 'papaparse';
 import {updateData} from '../actions/actions.js';
+import ReactTable from 'react-table';
+import 'react-table/react-table.css'
 
+const noPlots = 'No plots to display. ';
 class Data extends Component {
     
     constructor(props) {
         super(props);
         this.handeFileAdded = this.handeFileAdded.bind(this);
-        this.renderTableData = this.renderTableData.bind(this);
-        
+        this.renderTable = this.renderTable.bind(this);
     }
     
   
@@ -21,22 +23,36 @@ class Data extends Component {
             }
         });
     }
-    
-    renderTableData(parsed){
-        let i = 0;
-        let table = parsed.data.map(records => {
-            let j = -1;
-            let row = records.map(record => {
-                j++;
-                return (i === 0) ? <th key = {j}>{record}</th> : <td key = {j}>{(j === 0 )? record : Number(record).toFixed(2)}</td>
-            });
-            i++;
-            return(<tr key = {i}>{row}</tr>);
+    renderTable(){
+        let headers = this.props.data.data[0].map((header, index) => {
+            return {
+                Header: header,
+                accessor: 'row'+index
+            }
         });
-        return table;
+        let data = this.props.data.data.slice(1, this.props.data.data.length).map((record) => {
+            let row = {};
+            headers.map((header, index) => {
+                Object.assign(row, { 
+                    [header.accessor]: record[index]
+                });
+                return null;
+            });
+            return row;
+            
+        });
+        return(
+            <ReactTable 
+                data ={data}
+                columns = {headers}
+                defaultPageSize={10}
+            />
+        );
     }
-
+    
     render() {
+
+        
         return (
             <div className = 'data'>
                 <h2>Data</h2>
@@ -48,9 +64,7 @@ class Data extends Component {
                 </div>
                 <div>
                     <h3>Current data state</h3>
-                    <table>
-                        <tbody>{(this.props.data) ? this.renderTableData(this.props.data)  : null}</tbody>
-                    </table>
+                    {(this.props.data) ? this.renderTable() : <p>{noPlots}</p>}
                 </div>
             </div>
         ); 

@@ -1,18 +1,28 @@
 import React from 'react';
 
+import jsLogo from '../images/js.png';
+import reactLogo from '../images/react.png';
+import reduxLogo from '../images/redux.png';
+import sassLogo from '../images/sass.png';
+
 const About = function(props) {
     return (
         <div className = 'about'>
             <h2>about</h2>
             <div>
-                <h3>Me</h3>
-
+                <h3>Author</h3>
+                <p>
+                    My name is Piotr Jabłoński and I'm creator of this simple application. Since November 2017 I've worked at University of New South Wales (Sydney) were I was dealing with scientific and engineering problems, especially covering computational mechanics. Great part of my work was development of this application, and other, smaller solutions making everyday data processing and visualization tasks easier. 
+                </p>
             </div>
             <div>
-                <h3>Motivation</h3>
+                <h3>Motivation</h3> 
+                <p>
+                    This project was proposed as a way of optimizing research on composite coatings. Mentioned research covered problems of strength and wear resistance of hard, ceramic-metallic coatings. Part of investigation included numerical analysis with finite element method in Ansys software. This application was proposed as a tool for data interpretation and visualization, instead of doing this with commercial software. Great outcome of this project is a fact, that this application, basing on tabular result data from Ansys, is capable of re-evaluating of numerical model for given data, without need for computing discrete model. Model is calculated once in FEM environment. Following calculations, for data points that were not covered in primary numerical solution, can be evaluated with interpolation of data received from FEM system. This means great decrease both of computing time and total cost of research.
+                </p>
             </div>
             <div>
-                <h3>Nerdy mumbo jumbo</h3>
+                <h3>Nerdy stuff</h3>
                 <p>
                      Following application is 100% running on client side. There is no either backend database or logic.
                 </p>
@@ -36,9 +46,21 @@ const About = function(props) {
                             <a rel="noopener noreferrer" target = '_blank' href="https://www.npmjs.com/package/cubic-spline">cubic-spline</a>
                         </li>
                     </ul>
-                <p>
-                    Beauty of this website is depending on power of <a target = '_blank' rel="noopener noreferrer" href="http://sass-lang.com/">Sass</a>. For SCSS processor, <a target = '_blank' rel="noopener noreferrer" href="https://www.npmjs.com/package/node-sass-chokidar">node-sass-chokidar</a> is here. Slider on welcoming page is created with <a target = '_blank' rel="noopener noreferrer" href="http://kenwheeler.github.io/slick/">Slick carousel</a> (Slick's <a target = '_blank' rel="noopener noreferrer" href="https://github.com/akiran/react-slick">React port</a>, to be precise). Layout and RWD are strongly depending on CSS-grid, so fingers crossed for Edge update propagation (At the time of release, update that enables CSS grid in MS browsers is <a target = '_blank' rel="noopener noreferrer" href="https://developer.microsoft.com/en-us/microsoft-edge/platform/changelog/desktop/16237/">already in the air.</a>)
-                </p>
+                
+            </div>
+            <div>
+                <h3>Made with</h3>
+                 
+                <ul>
+                    <li><img src={jsLogo} alt="JavaScript"/></li>
+                    <li><img src={reactLogo} alt="React"/></li>
+                    <li><img src={reduxLogo} alt="Redux"/></li>
+                    <li><img src={sassLogo} alt="Sass"/></li>
+                    <li><i className="fa fa-coffee" aria-hidden="true"></i></li>
+                    <li><i className="fa fa-music" aria-hidden="true"></i></li>
+                    <li>and of course</li>
+                    <li><i className="fa fa-stack-overflow" aria-hidden="true"></i></li>
+                </ul>
             </div>
         </div>
     );

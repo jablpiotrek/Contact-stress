@@ -4,11 +4,10 @@ import Papa from 'papaparse';
 import $ from "jquery";
 import {updateData} from '../actions/actions.js';
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
-  Link
 } from 'react-router-dom';
+import {withRouter} from 'react-router';
 
 import Welcome from './Welcome.js';
 import Calculate from './Calculate.js';
@@ -47,43 +46,30 @@ class Main extends Component {
     render(){
 
         return(
-            <Router>
-                <div className = 'main'>
-                    <nav>
-                        <ul>
-                            <li><Link to = '/'>Home</Link></li>
-                            <li><Link to = '/calculate'>Calculate</Link></li>
-                            <li><Link to = '/plot'>Plot</Link></li>
-                            <li><Link to = '/data'>Data</Link></li>
-                            <li><Link to = '/about'>About</Link></li>
-                        </ul>
-                    </nav>
+            <div className = 'main'>;
                     <Switch>
-                        <Route
-                        path = '/calculate'
-                        component =  {Calculate}
-                        />
-                           <Route
-                        path = '/plot'
-                        component =  {Plot}
-                        />
-                        <Route
-                        path = '/data'
-                        component =  {Data}
-                        />
-                            <Route
-                        path = '/about'
-                        component =  {About}
-                        />
-                        <Route
-                        path= '/'
-                        component =  {Welcome}
-                        />
-                    </Switch>
-                </div>
-            </Router>
-
-
+                    <Route
+                    path = '/calculate'
+                    component =  {Calculate}
+                    />
+                       <Route
+                    path = '/plot'
+                    component =  {Plot}
+                    />
+                    <Route
+                    path = '/data'
+                    component =  {Data}
+                    />
+                    <Route
+                    path = '/about'
+                    component =  {About}
+                    />
+                    <Route
+                    path= '/'
+                    component =  {Welcome}
+                    />
+                </Switch>
+            </div>
         );
     }
 }
@@ -95,4 +81,4 @@ const mapDispatchToProps = {
     updateData
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

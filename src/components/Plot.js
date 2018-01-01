@@ -5,7 +5,6 @@ import {updatePlot} from '../actions/actions.js';
 import {tempOptions, thicknessOptions, radiusOptions, plotOptions, interpOptions} from './_selectOptions.js';
 import Plot3D from './Plot3D.js';
 
-
 class Plot extends Component{
 
     renderSecondSelect(type) {

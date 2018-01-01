@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import interpolateArray from '../externals/interpolate_array.js';
 import {Graph3d} from 'vis';
 
+const noPlots = 'No plots to display. Set input parameters and hit "Calculate"!';
 
 class Plot3D extends Component {
 
@@ -85,10 +86,11 @@ class Plot3D extends Component {
                 });
             }));
         }
-
+       
         dataSets = dataSets.map((set) => {
             return(interpolateArray(set, plotParameters.interp));
         });
+
         return({
             data: dataSets,
             titles: paramNames
@@ -154,11 +156,14 @@ class Plot3D extends Component {
         if (this.props.data && this.props.plot) {
             let plot = this.prepareDataForPlot3D(this.props.data, this.props.plot);
             this.renderPlot(plot, this.props.plot.type);
-
-
         }
     }
-
+    componentDidMount(){
+        if (this.props.data && this.props.plot) {
+            let plot = this.prepareDataForPlot3D(this.props.data, this.props.plot);
+            this.renderPlot(plot, this.props.plot.type);
+        }        
+    }
 
 
     render(){
@@ -178,7 +183,7 @@ class Plot3D extends Component {
         return(
         <div>
             <h3>Plots</h3>
-            {plotContainers}
+            {(this.props.plot) ? plotContainers : <p>{noPlots}</p>}
 
         </div>
 

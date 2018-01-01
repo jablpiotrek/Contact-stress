@@ -2,6 +2,7 @@ import spline from 'cubic-spline';
 import splitArray from 'split-array';
 
 export default function interpolateArray(data, n) {
+    //interploation of simple row or column
     function interpoalateDirection(axis, Z, n) {
         let ZNew = [];
         for (let i = 0; i < Z.length - 1; i++) {
@@ -13,6 +14,7 @@ export default function interpolateArray(data, n) {
         ZNew.push(Z[Z.length - 1]);
         return ZNew;
     }
+    //interpolate arguments array (axis)
     function interpolateAxis(axis, n) {
         let newAxis = [];
         for (let i = 0; i < axis.length - 1; i++) {
@@ -29,16 +31,16 @@ export default function interpolateArray(data, n) {
         {x: xn, y:yn, z:zn}
     ];
     n is a number of points, that will be inserted between data points
-    assume thath array is regular(there are values for all combinations of x and y)
-    DATA NEED TO BY SORTED BY X AND Y
-     data = [
-        {x:0, y:0, z:0},
-        {x:0:, y:1, z:21},
-        {x:0, y:2, z:66},
-        {x:1, y:0, z:23},
-        etc.
-     ]
     */
+
+    //sort data firstly by x and then by y
+
+    data.sort((a, b) => {
+        //sort firstly by 1st column, if equal then sort by second column
+        return a.x - b.x || a.y - b.y;
+    });
+
+
     //dissasemble object
     let X = [];
     let Y = [];
@@ -60,18 +62,25 @@ export default function interpolateArray(data, n) {
         }
         return (record);
     });
-    Z = data.map((record) => {
+    data.map((record) => {
+        if (Z.indexOf(record.z) === -1) {
+            Z.push(record.z)
+        }
         return record.z;
     })
-    Z = splitArray(Z, X.length);;
+    Z = splitArray(Z, X.length);
+
+    //interpolate along columns
     let interpColumns = [];
     for (let i = 0; i < Y.length; i++) {
         let tempZ = [];
         for (let j = 0; j < X.length; j++) {
-            tempZ.push(Z[j][i]);
+            tempZ.push(Z[i][j]);
         }
         interpColumns.push(interpoalateDirection(X, tempZ, n));
     }
+
+    //interpolate along rows
     for (let i = 0; i < interpColumns[0].length; i++) {
         let row = [];
         for (let j = 0; j < interpColumns.length; j++) {
@@ -82,16 +91,22 @@ export default function interpolateArray(data, n) {
     Z3 = Z2.map(row => {
         return (interpoalateDirection(Y, row, n));
     });
+
+    //interpolate arguments x and y
     X2 = interpolateAxis(X, n);
     Y2 = interpolateAxis(Y, n);
+
+    //assemble data object
     for (let x = 0; x < X2.length; x++) {
         for (let y = 0; y < Y2.length; y++) {
             dataInt.push({
                 x: X2[x],
                 y: Y2[y],
-                z: Z3[x][y]
+                z: Z3[y][x]
             });
         }
     }
+    
     return dataInt;
+    
 };

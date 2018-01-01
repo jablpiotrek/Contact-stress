@@ -22,7 +22,7 @@ export default class Welcome extends Component {
                     </div>
                     <div>
                         <h3>Research background</h3>
-                        <p>Presented piece of software is a result of research conducted by me in <a rel="noopener noreferrer" target = '_blank' href="https://www.engineering.unsw.edu.au/mechanical-engineering/">School of Mechanical and Manufacturing Engineering</a>- a part of <a rel="noopener noreferrer" target = '_blank'  href="https://www.unsw.edu.au/"> University of New South Wales</a> in Sydney, Australia. During my work at UNSW I conducted numerous experiments in Structural Module of Ansys Workbench. Performed simulations were focused on evaluation of both contact and thermal stress in anti-wear coatings made of composite material - Cr3C2-NiCr on a steel substrate. More complex introduction to mentionedenginnering problem can be found in  <a rel="noopener noreferrer" target ='_blank' href="https://link.springer.com/chapter/10.1007/978-3-319-56430-2_24">scietfifc paper</a></p>
+                        <p>Presented piece of software is a result of research conducted by me in <a rel="noopener noreferrer" target = '_blank' href="https://www.engineering.unsw.edu.au/mechanical-engineering/">School of Mechanical and Manufacturing Engineering</a>- a part of <a rel="noopener noreferrer" target = '_blank'  href="https://www.unsw.edu.au/"> University of New South Wales</a> in Sydney, Australia. During my work at UNSW I conducted numerous experiments in Structural Module of Ansys Workbench. Performed simulations were focused on evaluation of both contact and thermal stress in anti-wear coatings made of composite material - Cr3C2-NiCr on a steel substrate. More complex introduction to mentioned engineering problem can be found in  <a rel="noopener noreferrer" target ='_blank' href="https://link.springer.com/chapter/10.1007/978-3-319-56430-2_24">scietfifc paper</a></p>
                     </div>
                     <div>
                         <h3>FEA experiment</h3>
@@ -30,7 +30,7 @@ export default class Welcome extends Component {
                     </div>
                     <div>
                         <h3>Calculate</h3>
-                        <p>This tab includes module for evaluating results for given data point. Algorithm interpolates  results in imported data array to specific point. Two-dimensional, linear interpolation is implemented.</p>
+                        <p>This tab includes module for evaluating results for given data point. Algorithm perform interpolation results in imported data array to specific point. Two-dimensional, linear interpolation is implemented.</p>
                     </div>
                     <div>
                         <h3>Plot</h3>

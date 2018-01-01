@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Form, Text, Select} from 'react-form';
 import {appendResult, clearResults} from '../actions/actions.js';
-
 import ndarray from 'ndarray';
 import interp from 'ndarray-linear-interpolate';
 
 import {tempOptions} from './_selectOptions.js';
+const noResults = 'No reslult to display. Set input values and hit "Calculate"!';
 
 const formValidator = (values) => {
         return({
@@ -134,7 +134,6 @@ class Calculate extends Component {
         );
     }
     render() {
-        const noResults = 'No reslult to display. Set input values and hit "Calculate"!';
         return (
             <div className = 'container calculate'>
                 <h2>Calculate</h2>
