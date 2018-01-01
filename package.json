@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "2d-bicubic-interpolate": "^1.0.0",
     "cubic-spline": "^1.0.4",
     "jquery": "^3.2.1",
     "ndarray": "^1.0.18",

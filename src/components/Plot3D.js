@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import interpolateArray from '../externals/interpolate_array.js';
 import {Graph3d} from 'vis';
+import interpolateArray from '2d-bicubic-interpolate';
 
 const noPlots = 'No plots to display. Set input parameters and hit "Calculate"!';
 
