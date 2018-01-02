@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "2d-bicubic-interpolate": "^1.0.0",
+    "2d-bicubic-interpolate": "^1.0.2",
     "cubic-spline": "^1.0.4",
     "jquery": "^3.2.1",
     "ndarray": "^1.0.18",
@@ -13,7 +13,7 @@
     "papaparse": "^4.3.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-form": "^2.14.4",
+    "react-form": "^2.15.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",

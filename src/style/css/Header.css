@@ -1,0 +1,20 @@
+.header {
+  grid-area: header; }
+  .header .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 10px; }
+    .header .title img {
+      height: 60px; }
+  .header nav .navigation {
+    display: flex;
+    margin: 0;
+    padding: 0; }
+    .header nav .navigation li {
+      display: inline-block;
+      flex-grow: 1; }
+      .header nav .navigation li a {
+        text-align: center;
+        display: block;
+        width: 100%; }

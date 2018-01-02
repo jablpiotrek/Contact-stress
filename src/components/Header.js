@@ -9,17 +9,19 @@ export default class  Header extends Component {
     render () {
         return (
             <div className = 'header'>
-                <img src={UNSWLogo} alt="Univeristy of New South Wales Sydney"/>
-                <h1>Coating Stress Calculator</h1>
-                    <nav>
-                        <ul>
-                            <li><Link to = '/'>Home</Link></li>
-                            <li><Link to = '/calculate'>Calculate</Link></li>
-                            <li><Link to = '/plot'>Plot</Link></li>
-                            <li><Link to = '/data'>Data</Link></li>
-                            <li><Link to = '/about'>About</Link></li>
-                        </ul>
-                    </nav>
+                <div className = 'title'>
+                    <img src={UNSWLogo} alt="Univeristy of New South Wales Sydney"/>
+                    <h1>Coating Stress Calculator</h1>
+                </div>
+                <nav>
+                    <ul className = 'navigation'>
+                        <li><Link to = '/'>Home</Link></li>
+                        <li><Link to = '/calculate'>Calculate</Link></li>
+                        <li><Link to = '/plot'>Plot</Link></li>
+                        <li><Link to = '/data'>Data</Link></li>
+                        <li><Link to = '/about'>About</Link></li>
+                    </ul>
+                </nav>
             </div>
         );
     }

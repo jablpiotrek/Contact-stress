@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {Graph3d} from 'vis';
+
 import interpolateArray from '2d-bicubic-interpolate';
 
 const noPlots = 'No plots to display. Set input parameters and hit "Calculate"!';
@@ -167,6 +168,33 @@ class Plot3D extends Component {
 
 
     render(){
+        
+const datas111 = [
+    {
+        x: 0,
+        y: 0,
+        z: 0.3
+    },
+    {
+        x: 1,
+        y: 0,
+        z: 1.2
+    },
+    {
+        x: 0,
+        y: 1,
+        z: 1.4
+    },
+    {
+        x: 1,
+        y: 1,
+        z: 2.2
+    }
+];
+console.log(interpolateArray(datas111,1));
+        
+        
+        
 
         let plotContainers =[];
         if (this.props.data && this.props.plot) {

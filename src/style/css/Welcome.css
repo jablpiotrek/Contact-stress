@@ -7,5 +7,8 @@
 .slick-dots {
   bottom: 0; }
 
-.welcome {
+.slick-slide slick-active {
+  width: 200px; }
+
+.welcome .slider {
   padding: 0 40px; }
