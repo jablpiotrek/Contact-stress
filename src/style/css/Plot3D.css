@@ -1,0 +1,7 @@
+.plots div.plot-area {
+  padding: 0 !important;
+  margin: 0 auto; }
+  .plots div.plot-area div {
+    padding: 0; }
+  .plots div.plot-area h4 {
+    text-align: center; }

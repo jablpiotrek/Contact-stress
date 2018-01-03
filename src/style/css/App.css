@@ -1,6 +1,14 @@
 .app {
   height: 100vh;
   display: grid;
-  grid-template-areas: 'header header header' '. main .' 'footer footer footer';
+  grid-template-areas: 'header header header' '. main .' 'footer footer footer';
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr 8fr 1fr; }
+  grid-template-columns: 20px 6fr 20px;
+  grid-gap: 20px; }
+  @media screen and (max-width: 550px) {
+    .app {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'header' 'main' 'footer'; } }
+  @media screen and (min-width: 1300px) {
+    .app {
+      grid-template-columns: 1fr 6fr 1fr; } }

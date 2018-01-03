@@ -4,24 +4,29 @@ import jsLogo from '../images/js.png';
 import reactLogo from '../images/react.png';
 import reduxLogo from '../images/redux.png';
 import sassLogo from '../images/sass.png';
+import routerLogo from '../images/router.png';
+import visLogo from '../images/vis.png';
+import gitHubLogo from '../images/octocat.png' ;
 
+
+import '../style/css/About.css';
 const About = function(props) {
     return (
-        <div className = 'about'>
-            <h2>about</h2>
-            <div>
+        <div className = 'container about'>
+            <h2>About</h2>
+            <div className = 'section'>
                 <h3>Author</h3>
                 <p>
                     My name is Piotr Jabłoński and I'm creator of this simple application. Since November 2017 I've worked at University of New South Wales (Sydney) were I was dealing with scientific and engineering problems, especially covering computational mechanics. Great part of my work was development of this application, and other, smaller solutions making everyday data processing and visualization tasks easier. 
                 </p>
             </div>
-            <div>
+            <div  className = 'section'>
                 <h3>Motivation</h3> 
                 <p>
                     This project was proposed as a way of optimizing research on composite coatings. Mentioned research covered problems of strength and wear resistance of hard, ceramic-metallic coatings. Part of investigation included numerical analysis with finite element method in Ansys software. This application was proposed as a tool for data interpretation and visualization, instead of doing this with commercial software. Great outcome of this project is a fact, that this application, basing on tabular result data from Ansys, is capable of re-evaluating of numerical model for given data, without need for computing discrete model. Model is calculated once in FEM environment. Following calculations, for data points that were not covered in primary numerical solution, can be evaluated with interpolation of data received from FEM system. This means great decrease both of computing time and total cost of research.
                 </p>
             </div>
-            <div>
+            <div  className = 'section'>
                 <h3>Nerdy stuff</h3>
                 <p>
                      Following application is 100% running on client side. There is no either backend database or logic.
@@ -47,19 +52,17 @@ const About = function(props) {
                         </li>
                     </ul>
                 
-            </div>
-            <div>
+            </div >
+            <div  className = 'section made-with'>
                 <h3>Made with</h3>
-                 
                 <ul>
                     <li><img src={jsLogo} alt="JavaScript"/></li>
                     <li><img src={reactLogo} alt="React"/></li>
                     <li><img src={reduxLogo} alt="Redux"/></li>
                     <li><img src={sassLogo} alt="Sass"/></li>
-                    <li><i className="fa fa-coffee" aria-hidden="true"></i></li>
-                    <li><i className="fa fa-music" aria-hidden="true"></i></li>
-                    <li>and of course</li>
-                    <li><i className="fa fa-stack-overflow" aria-hidden="true"></i></li>
+                    <li><img src={routerLogo} alt="Router"/></li>
+                    <li><img src={visLogo} alt="vis.js"/></li>
+                    <li><img src={gitHubLogo} alt="GitHub"/></li>
                 </ul>
             </div>
         </div>

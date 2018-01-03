@@ -3,10 +3,13 @@ import {connect} from 'react-redux';
 import {Form, Select} from 'react-form';
 import {updatePlot} from '../actions/actions.js';
 import {tempOptions, thicknessOptions, radiusOptions, plotOptions, interpOptions} from './_selectOptions.js';
+
 import Plot3D from './Plot3D.js';
 
-class Plot extends Component{
+import '../style/css/Plot.css';
 
+class Plot extends Component{
+   
     renderSecondSelect(type) {
         switch (type) {
             case 1:
@@ -38,6 +41,7 @@ class Plot extends Component{
                 );
         }
     }
+   
     render(){
         return (
             <div className = 'container plot'>
@@ -49,8 +53,8 @@ class Plot extends Component{
                         defaultValues = {{interp: 0, type: 1, r: 14, h: 0.1, t: 22}}
                     >
                         {formApi => (
-                            <form onSubmit =  {formApi.submitForm}>
-                                <div>
+                            <form onSubmit =  {formApi.submitForm} >
+                                <div className = 'section properties'>
                                     <h3>Plot properites</h3>
                                     <div>
                                         <label htmlFor="type">Select type of charts:</label>
@@ -68,7 +72,7 @@ class Plot extends Component{
                                         />
                                     </div>
                                 </div>
-                                <div>
+                                <div className = 'section buttons'>
                                     <button type = 'submit'>Draw Plot</button>
                                 </div>
                             </form>

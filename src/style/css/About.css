@@ -1,0 +1,54 @@
+.container {
+  padding: 30px;
+  background-color: beige; }
+  .container h2 {
+    margin: 0 0 2rem 0; }
+  .container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    margin: 1rem 0; }
+  .container .section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 1rem;
+    border: 1px solid gray; }
+    .container .section h3 {
+      margin: 0 0 1rem 0;
+      width: 100%; }
+    .container .section div {
+      padding: 0.4rem 1rem;
+      display: flex;
+      flex-direction: column; }
+      .container .section div label {
+        margin: 0.2rem 0; }
+      .container .section div input {
+        width: 10rem; }
+      .container .section div select {
+        width: 6rem; }
+  .container .buttons {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .container .buttons button {
+      margin: 0 0.25rem; }
+
+.about .section {
+  margin-bottom: 1rem; }
+
+.about .made-with ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0; }
+  .about .made-with ul li {
+    margin: 0 0.5rem; }
+    .about .made-with ul li .fa {
+      font-size: 60px; }

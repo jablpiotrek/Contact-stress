@@ -5,6 +5,8 @@ import {appendResult, clearResults} from '../actions/actions.js';
 import ndarray from 'ndarray';
 import interp from 'ndarray-linear-interpolate';
 
+import '../style/css/Calculate.css';
+
 import {tempOptions} from './_selectOptions.js';
 const noResults = 'No reslult to display. Set input values and hit "Calculate"!';
 
@@ -146,7 +148,7 @@ class Calculate extends Component {
                     >
                         {formApi => (
                             <form onSubmit = {formApi.submitForm} >
-                                <div>
+                                <div className = 'section geometry'>
                                     <h3>Coating geometry</h3>
                                     <div>
                                         <label htmlFor = 'r'>Curvature radius (14-22 mm): </label>
@@ -159,19 +161,24 @@ class Calculate extends Component {
                                         <label htmlFor = 'h'>{formApi.submits>0 ? formApi.errors.h : null}</label>
                                     </div>
                                 </div>
-                                <div>
-                                    <h3>Temperature gradient peak</h3>
-                                    <label htmlFor = 't'>Temperature: </label>
-                                    <Select field = 't' options={tempOptions}/>
+                                <div className = 'section temperature'>
+                                    <h3>Temperature</h3>
+                                    <div>
+                                        <label htmlFor = 't'>Gradient temp. peak: </label>
+                                        <Select field = 't' options={tempOptions}/>
+                                        <label>{null}</label>
+                                    </div>
+                                    
                                 </div>
-                                <div>
+                                <div className = 'section buttons'>
                                     <button type="submit">Calculate</button>
                                     <button type = 'button' onClick = {this.props.clearResults}>Clear calculated data</button>
                                 </div>
                             </form>        
                         )}    
                         </Form>
-                <div>
+                <div className = 'section results'>
+                    <h3>Results</h3>
                     {(this.props.data && this.props.results.length > 0) ? this.rednerResults(this.props.data, this.props.results) : <p>{noResults}</p>}
                 </div>
 

@@ -1,0 +1,55 @@
+.container {
+    padding: 30px;
+    background-color: beige;
+    h2 {
+        margin: 0 0 2rem 0;
+    }
+     form {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 1rem;
+        margin:  1rem 0;
+    }
+    .section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 1rem;
+        border: 1px solid gray;
+        h3 {
+            margin: 0 0 1rem 0;
+            width: 100%;
+            
+        }
+        div {
+            padding: 0.4rem 1rem;
+            display: flex;
+            flex-direction: column;
+            label {
+                margin: 0.2rem 0;
+
+            }
+            input {
+                width: 10rem;
+            }
+            select {
+                width: 6rem;
+            }
+        }
+    }
+        .buttons {
+            
+            grid-column: 1/4;
+            grid-row: 2/3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                margin: 0 0.25rem;
+            }
+
+        }
+    
+
+}

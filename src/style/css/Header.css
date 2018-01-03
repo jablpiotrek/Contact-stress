@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 10px; }
+    margin: 10px; }
     .header .title img {
       height: 60px; }
   .header nav .navigation {

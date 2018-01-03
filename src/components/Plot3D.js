@@ -5,11 +5,18 @@ import {Graph3d} from 'vis';
 
 import interpolateArray from '2d-bicubic-interpolate';
 
+import '../style/css/Plot3D.css';
 const noPlots = 'No plots to display. Set input parameters and hit "Calculate"!';
 
 class Plot3D extends Component {
 
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            plotWidth : 400
+        };
+        this.handleResize = this.handleResize.bind(this);
+    }
 
     prepareDataForPlot3D(rawData, plotParameters) {
         // create array fo parametres names
@@ -99,7 +106,9 @@ class Plot3D extends Component {
 
     }
 
-
+    handleResize(){
+        this.setState({plotWidth : document.getElementById('plotContainer').clientWidth * 0.9});
+    }
     renderPlot(plot, type) {
         let xLabel = null;
         let yLabel = null;
@@ -126,11 +135,11 @@ class Plot3D extends Component {
                 {
                     distance: 2
                 },
-            width: '600px',
-            height: '400px',
+            width: this.state.plotWidth + 'px',
+            height: this.state.plotWidth * 0.8 + 'px',
             style: 'surface',
             keepAspectRatio: false,
-            tooltip: true,
+            tooltip: false,
             showPerspective: true,
             showGrid: true,
             showShadow: false,
@@ -160,47 +169,25 @@ class Plot3D extends Component {
         }
     }
     componentDidMount(){
+        window.addEventListener("resize", this.handleResize);
+        this.setState({plotWidth : document.getElementById('plotContainer').clientWidth});
         if (this.props.data && this.props.plot) {
             let plot = this.prepareDataForPlot3D(this.props.data, this.props.plot);
             this.renderPlot(plot, this.props.plot.type);
         }        
     }
 
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.handleResize);
+    }
 
     render(){
-        
-const datas111 = [
-    {
-        x: 0,
-        y: 0,
-        z: 0.3
-    },
-    {
-        x: 1,
-        y: 0,
-        z: 1.2
-    },
-    {
-        x: 0,
-        y: 1,
-        z: 1.4
-    },
-    {
-        x: 1,
-        y: 1,
-        z: 2.2
-    }
-];
-console.log(interpolateArray(datas111,1));
-        
-        
-        
 
         let plotContainers =[];
         if (this.props.data && this.props.plot) {
             for (let i = 0; i < this.props.data.data[0].length - 5; i++) {
                 plotContainers.push(
-                    <div key = {i}>
+                    <div className = 'plot-area' key = {i}>
                         <h4>{this.props.data.data[0][5 + i]}</h4>
                         <div id = {'plot3d_' + i}></div>
 
@@ -209,7 +196,7 @@ console.log(interpolateArray(datas111,1));
         }
 
         return(
-        <div>
+        <div className = 'section plots' id = 'plotContainer'>
             <h3>Plots</h3>
             {(this.props.plot) ? plotContainers : <p>{noPlots}</p>}
 
