@@ -11,4 +11,4 @@
       grid-template-areas: 'header' 'main' 'footer'; } }
   @media screen and (min-width: 1300px) {
     .app {
-      grid-template-columns: 1fr 6fr 1fr; } }
+      grid-template-columns: 1fr 10fr 1fr; } }

@@ -1,0 +1,19 @@
+div.section.upload {
+    flex-direction: column;
+}
+.section-table {
+    h3 {
+        margin: 0 0 1rem 0;
+        width: 100%;    
+    }
+    .ReactTable {
+        margin: 2rem 0 0 0 ;
+        div.rt-td {
+            text-align: center;
+        }
+    }
+    border: 1px solid grey;
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+}
+  

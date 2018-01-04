@@ -1,7 +1,10 @@
 .plots div.plot-area {
   padding: 0 !important;
-  margin: 0 auto; }
+  width: 100% !important; }
   .plots div.plot-area div {
-    padding: 0; }
+    padding: 0;
+    width: 100% !important; }
+    .plots div.plot-area div div canvas {
+      width: 100% !important; }
   .plots div.plot-area h4 {
     text-align: center; }

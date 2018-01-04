@@ -1,29 +1,56 @@
+@import '_colors.scss';
+@import '_variables.scss';
 .header {
     grid-area: header;
-  
+    margin-bottom: 20px;
     .title {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: 10px;
         img {
-            height: 60px;
+            height: 70px;
+        }
+        h1 {
+            margin: 0 20px;
+
         }
     }
     nav {
-        .navigation {
-            display: flex;
-            margin: 0;
-            padding: 0;
-            li {
-                display: inline-block;
-                flex-grow: 1;
-                a {
-                    text-align: center;
-                    display: block;
-                    width: 100%;
+        display: flex;
+        margin: 1rem 0 0 0;
+        padding: 0;
+        background-color: $bckgColor;
+        a {
+            text-align: center;
+            transition: 0.2s;
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            color: $textColor;
+            flex: 1;
+            padding: 0.75rem 0;
+            &:hover {
+                background-color: $bckgColor;
+            }
+            &:visited,
+            &:hover,
+            &:active {
+                color: $textColor;
+            }
+            @media screen and(min-width: $small) {
+                &:nth-last-child(1) {
+                    margin-right: 5rem;
+                }
+                &:nth-child(1) {
+                    margin-left: 5rem;
                 }
             }
         }
+        a.active {
+            background-color: $bckgColor;
+        }
     }
+
 }
+

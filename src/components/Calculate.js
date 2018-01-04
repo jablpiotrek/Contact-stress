@@ -5,7 +5,11 @@ import {appendResult, clearResults} from '../actions/actions.js';
 import ndarray from 'ndarray';
 import interp from 'ndarray-linear-interpolate';
 
+
+import Table from './Table.js';
+
 import '../style/css/Calculate.css';
+
 
 import {tempOptions} from './_selectOptions.js';
 const noResults = 'No reslult to display. Set input values and hit "Calculate"!';
@@ -104,38 +108,39 @@ class Calculate extends Component {
     }
     rednerResults(rawData, results) {
         const parameters = ['R [mm]', 'H [mm]', 'T [\xB0C]'].concat(rawData.data[0].slice(5,rawData.length));
-        let i = -1;
-        const tableHead = parameters.map((parameter) => {
-            i++;
-            return <th key = {i}>{parameter}</th>
-        });
-        i = 0;
-        const tableData = results.map(result => {
-            i++;
-            let j = 2;
+        let headers = parameters.map((header, index) => {
             return (
-                <tr key = {i}>
-                    <td key = {0}>{result.r}</td>
-                    <td key = {1}>{result.h}</td>
-                    <td key = {2}>{result.t}</td>
-                    {result.result.map(parameter => {
-                        j++;
-                        return <td key = {j}>{Number(parameter).toFixed(2)}</td>
-                    })}
-                </tr>
+                {
+                    Header: header,
+                    accessor: 'row'+index,
+                    width: (header.length + 12) * 7
+                }
             );
         });
-        return (
-            <table>
-                <tbody>
-                    <tr key = {0}>{tableHead}</tr>
-                    {tableData}
-                </tbody>
-            </table>
+        let data = results.map(result => {
+            let row ={};
+            Object.assign(row, {
+                row0: result.r,
+                row1: result.h,
+                row2: String(result.t)
+            })
+            
+            result.result.map((parameter, index) => {
+                Object.assign(row, {
+                    [headers[index+3].accessor]: String(parameter)
+                })
+                return null;
+            });
+            
+            return row;
+        });    
+        
+        return({headers: headers, data: data});
 
-        );
+        
     }
     render() {
+        const table_0 = (this.props.data && this.props.results.length > 0)? this.rednerResults(this.props.data, this.props.results) : null;
         return (
             <div className = 'container calculate'>
                 <h2>Calculate</h2>
@@ -144,7 +149,7 @@ class Calculate extends Component {
                             this.sendResultsToStore(values.r, values.h, values.t, this.calculateResults(this.props.data, values.r, values.h, values.t));
                         }}
                         validateError = {formValidator}
-                        defaultValues = {{t:22}}
+                        defaultValues = {{t:22, r: 15, h: 0.12}}
                     >
                         {formApi => (
                             <form onSubmit = {formApi.submitForm} >
@@ -165,7 +170,7 @@ class Calculate extends Component {
                                     <h3>Temperature</h3>
                                     <div>
                                         <label htmlFor = 't'>Gradient temp. peak: </label>
-                                        <Select field = 't' options={tempOptions}/>
+                                        <Select field = 't' options={tempOptions} className = 'little'/>
                                         <label>{null}</label>
                                     </div>
                                     
@@ -177,9 +182,13 @@ class Calculate extends Component {
                             </form>        
                         )}    
                         </Form>
-                <div className = 'section results'>
+                <div className = 'section-table'>
                     <h3>Results</h3>
-                    {(this.props.data && this.props.results.length > 0) ? this.rednerResults(this.props.data, this.props.results) : <p>{noResults}</p>}
+                    {(table_0) ? 
+                        <Table 
+                            data = {table_0.data}
+                            headers = {table_0.headers}
+                        />: <p>{noResults}</p>}
                 </div>
 
             </div>

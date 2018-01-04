@@ -11,6 +11,7 @@
     margin: 1rem 0; }
   .container .section {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 1rem;
@@ -28,6 +29,10 @@
         width: 10rem; }
       .container .section div select {
         width: 6rem; }
+      .container .section div select.little {
+        width: 4rem; }
+      .container .section div select.big {
+        width: 10rem; }
   .container .buttons {
     grid-column: 1/4;
     grid-row: 2/3;

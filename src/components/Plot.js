@@ -16,7 +16,7 @@ class Plot extends Component{
                 return (
                     <div>
                         <label htmlFor = 't'>Select temperature gradient peak:</label>
-                        <Select field = 't' options = {tempOptions} />
+                        <Select field = 't' options = {tempOptions} className = 'little' />
                     </div>);
             case 2:
                 return (
@@ -30,7 +30,7 @@ class Plot extends Component{
                 return (
                     <div>
                         <label htmlFor = 'r'>Select coating curvature radius:</label>
-                        <Select field = 'r' options = {radiusOptions}/>
+                        <Select field = 'r' options = {radiusOptions} />
                     </div>
                 );
             default:
@@ -61,6 +61,7 @@ class Plot extends Component{
                                         <Select
                                             field = 'type'
                                             options = {plotOptions}
+                                            className = 'big'
                                         />
                                     </div>
                                     {this.renderSecondSelect(formApi.getFormState().values.type)}

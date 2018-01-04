@@ -31,19 +31,23 @@ export const interpOptions = [
         label: 'None'
     },
     {
-        value : 1,
+        value : 2,
         label : 'Low'
     },
     {
-        value : 3,
+        value : 5,
         label : 'Moderate'
     },
     {
-        value : 5,
+        value : 8,
         label : 'High'
     },
     {
-        value : 10,
+        value : 16,
         label : 'Very High'
+    },
+    {
+        value: 40,
+        label: 'Ultra'
     }
 ];

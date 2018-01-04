@@ -1,9 +1,24 @@
 @import '_slickFix.scss';
-.welcome {
+@import '_variables.scss';
+div.welcome {
 
-    .slider {
+    div.slider {
+
         padding: 0 30px;
-
-
+        @media screen and(max-width: $small) {
+            padding: 0 1px;
+        }
+        @media screen and (min-width: $big) {
+             padding: 0 200px;
+        }
     }
+    
+}
+
+div.section.slide {
+    margin: 0 20px;
+    @media screen and(max-width: $small) {
+            margin: 0 2px;
+        }
+    
 }

@@ -136,7 +136,7 @@ class Plot3D extends Component {
                     distance: 2
                 },
             width: this.state.plotWidth + 'px',
-            height: this.state.plotWidth * 0.8 + 'px',
+            height: this.state.plotWidth * 0.65 + 'px',
             style: 'surface',
             keepAspectRatio: false,
             tooltip: false,
@@ -144,19 +144,21 @@ class Plot3D extends Component {
             showGrid: true,
             showShadow: false,
             yCenter: '40%',
+            xCenter: '50%',
             verticalRatio: 0.4,
             xLabel: xLabel,
             yLabel: yLabel,
             zLabel: 'MPa'
         };
         let graph3d = [];
-
+        
         for (let i = 0; i < plot.titles.length; i++) {
             let container = document.getElementById('plot3d_' + i);
 
             graph3d.push(new Graph3d(container, plot.data[i], options));
 
         }
+        
 
 
 
@@ -167,14 +169,17 @@ class Plot3D extends Component {
             let plot = this.prepareDataForPlot3D(this.props.data, this.props.plot);
             this.renderPlot(plot, this.props.plot.type);
         }
+        
     }
     componentDidMount(){
         window.addEventListener("resize", this.handleResize);
         this.setState({plotWidth : document.getElementById('plotContainer').clientWidth});
+      
         if (this.props.data && this.props.plot) {
             let plot = this.prepareDataForPlot3D(this.props.data, this.props.plot);
             this.renderPlot(plot, this.props.plot.type);
         }        
+        
     }
 
     componentWillUnmount(){
@@ -199,6 +204,7 @@ class Plot3D extends Component {
         <div className = 'section plots' id = 'plotContainer'>
             <h3>Plots</h3>
             {(this.props.plot) ? plotContainers : <p>{noPlots}</p>}
+
 
         </div>
 

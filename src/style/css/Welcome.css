@@ -10,5 +10,17 @@
 .slick-slide slick-active {
   width: 200px; }
 
-.welcome .slider {
+div.welcome div.slider {
   padding: 0 30px; }
+  @media screen and (max-width: 550px) {
+    div.welcome div.slider {
+      padding: 0 1px; } }
+  @media screen and (min-width: 1300px) {
+    div.welcome div.slider {
+      padding: 0 200px; } }
+
+div.section.slide {
+  margin: 0 20px; }
+  @media screen and (max-width: 550px) {
+    div.section.slide {
+      margin: 0 2px; } }

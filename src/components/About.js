@@ -17,7 +17,7 @@ const About = function(props) {
             <div className = 'section'>
                 <h3>Author</h3>
                 <p>
-                    My name is Piotr Jabłoński and I'm creator of this simple application. Since November 2017 I've worked at University of New South Wales (Sydney) were I was dealing with scientific and engineering problems, especially covering computational mechanics. Great part of my work was development of this application, and other, smaller solutions making everyday data processing and visualization tasks easier. 
+                    My name is Piotr Jabłoński and I'm creator of this simple application. Since November 2017 I've worked at University of New South Wales (Sydney) were I was dealing with scientific and engineering problems, especially covering computational mechanics. Great part of my work involved development of this application, and others smaller solutions for everyday data processing and visualization. 
                 </p>
             </div>
             <div  className = 'section'>

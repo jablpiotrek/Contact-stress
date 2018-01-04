@@ -4,19 +4,21 @@
     h2 {
         margin: 0 0 2rem 0;
     }
-     form {
+    form {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: auto;
         grid-gap: 1rem;
         margin:  1rem 0;
     }
-    .section {
+    .section  {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
         padding: 1rem;
         border: 1px solid gray;
+        
         h3 {
             margin: 0 0 1rem 0;
             width: 100%;
@@ -26,6 +28,7 @@
             padding: 0.4rem 1rem;
             display: flex;
             flex-direction: column;
+            
             label {
                 margin: 0.2rem 0;
 
@@ -36,6 +39,12 @@
             select {
                 width: 6rem;
             }
+            select.little {
+                    width: 4rem;
+                }
+            select.big {
+                    width: 10rem;
+                }
         }
     }
         .buttons {

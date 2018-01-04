@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import UNSWLogo from '../images/UNSW.png';
 import '../style/css/Header.css';
-import {
-  Link
-} from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
+
 export default class  Header extends Component {
     
     render () {
@@ -14,13 +13,11 @@ export default class  Header extends Component {
                     <h1>Coating Stress Calculator</h1>
                 </div>
                 <nav>
-                    <ul className = 'navigation'>
-                        <li><Link to = '/'>Home</Link></li>
-                        <li><Link to = '/calculate'>Calculate</Link></li>
-                        <li><Link to = '/plot'>Plot</Link></li>
-                        <li><Link to = '/data'>Data</Link></li>
-                        <li><Link to = '/about'>About</Link></li>
-                    </ul>
+                    <NavLink exact to = '/' activeClassName="active">Home</NavLink>
+                    <NavLink to = '/calculate' activeClassName="active">Calculate</NavLink>
+                    <NavLink to = '/plot' activeClassName="active">Plot</NavLink>
+                    <NavLink to = '/data' activeClassName="active">Data</NavLink>
+                    <NavLink to = '/about' activeClassName="active">About</NavLink>
                 </nav>
             </div>
         );
