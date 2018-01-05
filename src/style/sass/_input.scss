@@ -1,0 +1,31 @@
+@import '_colors.scss';
+select {
+    transition: 0.4s;
+    color: $textColor;
+    border: $textColor 2px solid;
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    &:hover {
+        border: rgb(128, 255, 43) 2px solid;
+    }
+    option {
+        color: black;
+        
+    }
+}
+
+input {
+     color: $textColor;
+    border: $textColor 2px solid;
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    
+    &:focus {
+        border: rgb(128, 255, 43) 2px solid;
+    }
+}
+input.error {
+    border: $dangerColor 2px solid;
+}

@@ -1,10 +1,19 @@
+@import '_colors.scss';
 .footer {
+    border-top: $borderColor 3px solid;
+    z-index: 2;
     grid-area: footer;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding: 0 10px;
+    background-color: $bckgColor;
+    box-shadow: 0px -12px 37px -12px rgba(0,0,0,0.66);
     div {
-        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
     }
+
 }

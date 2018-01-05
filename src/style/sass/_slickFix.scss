@@ -1,5 +1,7 @@
+@import '_colors.scss';
+
 .slick-prev:before, .slick-next:before {
-    color: black;
+    color: $textColor;
 }
 .slick-slider {
     padding-bottom: 20px;

@@ -143,52 +143,58 @@ class Calculate extends Component {
         const table_0 = (this.props.data && this.props.results.length > 0)? this.rednerResults(this.props.data, this.props.results) : null;
         return (
             <div className = 'container calculate'>
-                <h2>Calculate</h2>
+                <h2><i  className="fa fa-bolt" aria-hidden="true"></i>Calculate</h2>
                     <Form
                         onSubmit = {values => {
                             this.sendResultsToStore(values.r, values.h, values.t, this.calculateResults(this.props.data, values.r, values.h, values.t));
                         }}
                         validateError = {formValidator}
-                        defaultValues = {{t:22, r: 15, h: 0.12}}
+                        defaultValues = {{t:22}}
                     >
                         {formApi => (
                             <form onSubmit = {formApi.submitForm} >
                                 <div className = 'section geometry'>
-                                    <h3>Coating geometry</h3>
+                                    <h3><i  className="fa fa-sliders" aria-hidden="true"></i>Coating geometry</h3>
                                     <div>
                                         <label htmlFor = 'r'>Curvature radius (14-22 mm): </label>
-                                        <Text field = 'r'/>
-                                        <label>{formApi.submits>0 ? formApi.errors.r : null}</label>
+                                        <Text className = {(formApi.submits>0 && formApi.errors.r) ? 'error' : null} field = 'r'/>
+                                        
                                     </div>
                                     <div>
                                         <label htmlFor = 'h'>Coating tickness (0.1-0.3 mm): </label>
-                                        <Text field = 'h'/>
-                                        <label htmlFor = 'h'>{formApi.submits>0 ? formApi.errors.h : null}</label>
+                                        <Text className = {(formApi.submits>0 && formApi.errors.h) ? 'error' : null} field = 'h'/>
+                                      
+                                    </div>
+                                    <div>
+                                        <label>{formApi.submits>0 ? formApi.errors.h : null}</label>
+                                        <label>{formApi.submits>0 ? formApi.errors.r : null}</label>
                                     </div>
                                 </div>
                                 <div className = 'section temperature'>
-                                    <h3>Temperature</h3>
+                                    <h3><i  className="fa fa-thermometer-half" aria-hidden="true"></i>Temperature</h3>
                                     <div>
                                         <label htmlFor = 't'>Gradient temp. peak: </label>
                                         <Select field = 't' options={tempOptions} className = 'little'/>
-                                        <label>{null}</label>
                                     </div>
                                     
                                 </div>
                                 <div className = 'section buttons'>
-                                    <button type="submit">Calculate</button>
-                                    <button type = 'button' onClick = {this.props.clearResults}>Clear calculated data</button>
+                                    <button className = 'action' type="submit"><i  className="fa fa-arrow-right" aria-hidden="true"></i>Calculate</button>
+                                    <button className = 'danger' type = 'button' onClick = {this.props.clearResults}><i  className="fa fa-trash-o" aria-hidden="true"></i>Clear results</button>
+                                    
+                                    
+                                    
                                 </div>
                             </form>        
                         )}    
                         </Form>
                 <div className = 'section-table'>
-                    <h3>Results</h3>
+                    <h3><i  className="fa fa-file-text-o" aria-hidden="true"></i>Results</h3>
                     {(table_0) ? 
                         <Table 
                             data = {table_0.data}
                             headers = {table_0.headers}
-                        />: <p>{noResults}</p>}
+                        />: <p><i  className="fa fa-exclamation-circle" aria-hidden="true"></i>{noResults}</p>}
                 </div>
 
             </div>

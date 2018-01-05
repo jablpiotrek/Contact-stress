@@ -107,7 +107,7 @@ class Plot3D extends Component {
     }
 
     handleResize(){
-        this.setState({plotWidth : document.getElementById('plotContainer').clientWidth * 0.9});
+        this.setState({plotWidth : document.getElementById('plotContainer').clientWidth * 0.8});
     }
     renderPlot(plot, type) {
         let xLabel = null;
@@ -202,8 +202,8 @@ class Plot3D extends Component {
 
         return(
         <div className = 'section plots' id = 'plotContainer'>
-            <h3>Plots</h3>
-            {(this.props.plot) ? plotContainers : <p>{noPlots}</p>}
+            <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>Plots</h3>
+            {(this.props.plot) ? plotContainers : <p><i class="fa fa-exclamation-circle" aria-hidden="true"></i>{noPlots}</p>}
 
 
         </div>

@@ -1,14 +1,39 @@
 div.section.upload {
   flex-direction: column; }
+  div.section.upload input {
+    color: gainsboro;
+    border: none; }
 
 .section-table {
-  border: 1px solid grey;
+  background-color: rgba(0, 0, 0, 0.35);
+  border-top: 3px solid rgba(0, 0, 0, 0.35);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.35);
   padding: 1rem;
   margin: 1rem 0 0 0; }
   .section-table h3 {
     margin: 0 0 1rem 0;
     width: 100%; }
   .section-table .ReactTable {
+    color: gainsboro;
     margin: 2rem 0 0 0; }
     .section-table .ReactTable div.rt-td {
       text-align: center; }
+
+.ReactTable .-pagination .-btn {
+  color: gainsboro;
+  margin: 0; }
+
+div.section-table > div > div.pagination-bottom > div > div.-center > span.-pageInfo > div > input {
+  color: gainsboro;
+  border: gainsboro 2px solid;
+  background-color: transparent;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem; }
+
+div.section-table > div > div.pagination-bottom > div > div.-center > span.select-wrap.-pageSizeOptions > select {
+  transition: 0.4s;
+  color: gainsboro;
+  border: gainsboro 2px solid;
+  background-color: transparent;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem; }

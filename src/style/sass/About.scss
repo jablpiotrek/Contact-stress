@@ -1,8 +1,11 @@
-@import '_commonLayout.scss';
 .about {
     .section {
         margin-bottom: 1rem;
+        ul {
+            width: 100%;
+        }
     }
+    
     .made-with {
         ul {
             width: 100%;
@@ -14,8 +17,9 @@
             padding: 0;
             li {
                 margin: 0 0.5rem;
-                .fa {
-                    font-size: 60px;
+                
+                img{
+                    filter: invert(78%);
                 }
             }
         }

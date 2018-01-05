@@ -45,7 +45,7 @@ class Plot extends Component{
     render(){
         return (
             <div className = 'container plot'>
-                <h2>Plot</h2>
+                <h2><i class="fa fa-area-chart" aria-hidden="true"></i>Plot</h2>
                     <Form
                         onSubmit = {(values) => {
                             this.props.updatePlot(values);
@@ -55,7 +55,7 @@ class Plot extends Component{
                         {formApi => (
                             <form onSubmit =  {formApi.submitForm} >
                                 <div className = 'section properties'>
-                                    <h3>Plot properites</h3>
+                                    <h3><i class="fa fa-sliders" aria-hidden="true"></i>Plot properites</h3>
                                     <div>
                                         <label htmlFor="type">Select type of charts:</label>
                                         <Select
@@ -74,7 +74,8 @@ class Plot extends Component{
                                     </div>
                                 </div>
                                 <div className = 'section buttons'>
-                                    <button type = 'submit'>Draw Plot</button>
+                                    <button className = 'action' type = 'submit'><i class="fa fa-pencil" aria-hidden="true"></i>
+Draw Plot</button>
                                 </div>
                             </form>
                         )}

@@ -1,0 +1,35 @@
+@import '_colors.scss';
+button {
+    color: $textColor;
+    border: $textColor 2px solid;
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 3rem;
+    transition: 0.4s;
+    i {
+        transition: 0.4s;
+    }
+}
+
+
+button.action {
+    &:hover {
+        border: rgb(128, 255, 43) 2px solid;
+        i {
+            color: rgb(128, 255, 43);
+        }
+    }
+}
+
+button.danger {
+    &:hover {
+        border: $dangerColor 2px solid;
+        i {
+            color: $dangerColor;
+        }
+    }
+}
+button.slick-arrow {
+    margin: 0;
+}

@@ -1,0 +1,42 @@
+@import '_colors.scss';
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+
+body {
+    font-family: 'Maven Pro', sans-serif;
+}
+nav > a {
+        text-decoration: none;
+        color: $textColor;
+        &:visited,
+        &:hover,
+        &:active {
+            color: $textColor;
+        }
+    }
+
+h1, h2, h3, h4, p, a, label {
+    color: $textColor;
+}
+
+h1, h2 {
+    font-family: 'Merienda', cursive;
+}
+p {
+    text-align: justify;
+    font-size: 1rem;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+h3 {
+    text-align: center;
+    border-bottom: 1px solid $textColor;
+    padding-bottom: 0.5rem;
+}
+
+i {
+    padding-right: 0.5rem;
+}
+label {
+    
+}

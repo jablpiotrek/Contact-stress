@@ -1,19 +1,46 @@
+@import '_colors.scss';
 div.section.upload {
     flex-direction: column;
+    input {
+        color: $textColor;
+        border: none;
+    }
 }
 .section-table {
+    background-color: $bckgColor;
     h3 {
         margin: 0 0 1rem 0;
         width: 100%;    
     }
     .ReactTable {
+        color: $textColor;
         margin: 2rem 0 0 0 ;
         div.rt-td {
             text-align: center;
         }
+        
     }
-    border: 1px solid grey;
+    border-top: 3px solid $borderColor;
+    border-bottom: 3px solid $borderColor;
     padding: 1rem;
     margin: 1rem 0 0 0;
 }
-  
+.ReactTable .-pagination .-btn {
+    color: $textColor;
+    margin: 0;
+}
+div.section-table > div > div.pagination-bottom > div > div.-center > span.-pageInfo > div > input {
+    color: $textColor;
+    border: $textColor 2px solid;
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+}
+div.section-table > div > div.pagination-bottom > div > div.-center > span.select-wrap.-pageSizeOptions > select {
+    transition: 0.4s;
+    color: $textColor;
+    border: $textColor 2px solid;
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+}

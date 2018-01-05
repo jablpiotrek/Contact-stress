@@ -1,4 +1,6 @@
 @import '_variables.scss';
+@import '_commonText.scss';
+@import '_commonLayout.scss';
 
 .app {
     height: 100vh;
@@ -6,6 +8,7 @@
     grid-template-areas: 'header header header' '. main .' 'footer footer footer';
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 20px 6fr 20px;
+    
     @media screen and(max-width: $small) {
         grid-template-columns: 1fr;
         grid-template-areas: 'header' 'main' 'footer';
@@ -14,4 +17,16 @@
         grid-template-columns: 1fr 10fr 1fr;
     }
     grid-gap: 20px;
+    div.background {
+        background-image: url('../../images/background.png');
+        background-size: cover;
+        background-attachment: fixed;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 0;
+        filter: hue-rotate(0deg);
+        transition:  1s;
+    }
 }
+

@@ -13,26 +13,26 @@ import '../style/css/About.css';
 const About = function(props) {
     return (
         <div className = 'container about'>
-            <h2>About</h2>
+            <h2><i className="fa fa-question-circle-o" aria-hidden="true"></i>About</h2>
             <div className = 'section'>
-                <h3>Author</h3>
+                <h3><i className="fa fa-id-card-o" aria-hidden="true"></i>Author</h3>
                 <p>
                     My name is Piotr Jabłoński and I'm creator of this simple application. Since November 2017 I've worked at University of New South Wales (Sydney) were I was dealing with scientific and engineering problems, especially covering computational mechanics. Great part of my work involved development of this application, and others smaller solutions for everyday data processing and visualization. 
                 </p>
             </div>
             <div  className = 'section'>
-                <h3>Motivation</h3> 
+                <h3><i className="fa fa-star" aria-hidden="true"></i>Motivation</h3> 
                 <p>
                     This project was proposed as a way of optimizing research on composite coatings. Mentioned research covered problems of strength and wear resistance of hard, ceramic-metallic coatings. Part of investigation included numerical analysis with finite element method in Ansys software. This application was proposed as a tool for data interpretation and visualization, instead of doing this with commercial software. Great outcome of this project is a fact, that this application, basing on tabular result data from Ansys, is capable of re-evaluating of numerical model for given data, without need for computing discrete model. Model is calculated once in FEM environment. Following calculations, for data points that were not covered in primary numerical solution, can be evaluated with interpolation of data received from FEM system. This means great decrease both of computing time and total cost of research.
                 </p>
             </div>
             <div  className = 'section'>
-                <h3>Nerdy stuff</h3>
+                <h3><i className="fa fa-code" aria-hidden="true"></i>Nerdy stuff</h3>
                 <p>
                      Following application is 100% running on client side. There is no either backend database or logic.
                 </p>
                 <p>
-                    This website is running <a rel="noopener noreferrer" target = '_blank' href="https://reactjs.org/">React</a>, alongside with <a rel="noopener noreferrer" target = '_blank' href="">Redux</a> for app state management. React-redux is for <a href="https://github.com/reactjs/react-redux" rel="noopener noreferrer" target = '_blank'>React-Redux</a> interaction (Thank you, Captain Obvious!). As well <a href="https://reacttraining.com/react-router/" rel="noopener noreferrer" target = '_blank'>React-Router</a> was used. To kickstart projet, <a rel="noopener noreferrer" target = '_blank' href="https://github.com/facebookincubator/create-react-app">create-react-app</a> was used, as it was found to be a very efficient and easy to set up way of igniting React environment.
+                    This website is running <a rel="noopener noreferrer" target = '_blank' href="https://reactjs.org/">React</a>, alongside with <a rel="noopener noreferrer" target = '_blank' href="https://redux.js.org/">Redux</a> for app state management. React-redux is for <a href="https://github.com/reactjs/react-redux" rel="noopener noreferrer" target = '_blank'>React-Redux</a> interaction (Thank you, Captain Obvious!). As well <a href="https://reacttraining.com/react-router/" rel="noopener noreferrer" target = '_blank'>React-Router</a> was used. To kickstart projet, <a rel="noopener noreferrer" target = '_blank' href="https://github.com/facebookincubator/create-react-app">create-react-app</a> was used, as it was found to be a very efficient and easy to set up way of igniting React environment.
                 </p>
                 <p>
                     For data visualization (plots), <a rel="noopener noreferrer" target = '_blank' href="http://visjs.org/">vis.js</a> was used, which is super-efficent. As well, other libraries were used for data manipulation and mathematic side of applciation:
@@ -51,10 +51,11 @@ const About = function(props) {
                             <a rel="noopener noreferrer" target = '_blank' href="https://www.npmjs.com/package/cubic-spline">cubic-spline</a>
                         </li>
                     </ul>
+                    
                 
             </div >
             <div  className = 'section made-with'>
-                <h3>Made with</h3>
+                <h3><i className="fa fa-heart-o" aria-hidden="true"></i>Made with</h3>
                 <ul>
                     <li><img src={jsLogo} alt="JavaScript"/></li>
                     <li><img src={reactLogo} alt="React"/></li>

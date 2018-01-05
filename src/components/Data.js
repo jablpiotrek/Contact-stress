@@ -54,15 +54,15 @@ class Data extends Component {
         const table_0 = (this.props.data ) ? this.prepareTable() : null;
         return (
             <div className = 'container data'>
-                <h2>Data</h2>
+                <h2><i className="fa fa-database" aria-hidden="true"></i>Data</h2>
                 <div className = 'upload section'>
-                    <h3>File upload</h3>
+                    <h3><i className="fa fa-plus" aria-hidden="true"></i>File upload</h3>
                     <p>To change working data, upload .csv or .txt file. Data format in given file must be same as in an untouched Ansys parameter set export.</p>
                     
                     <input type = 'file' onChange = {this.handeFileAdded} />
                 </div>
                 <div  className = 'section-table'>
-                    <h3>Current data state</h3>
+                    <h3><i className="fa fa-hdd-o" aria-hidden="true"></i>Current data state</h3>
                     {(table_0) ? 
                         <Table 
                             data = {table_0.data}
