@@ -32,7 +32,8 @@
       display: block;
       width: 100%;
       flex: 1;
-      padding: 0.5rem 0; }
+      padding: 0.5rem 0;
+      text-transform: uppercase; }
       .header nav a:hover {
         background-color: rgba(0, 0, 0, 0.35); }
       @media screen and (min-width: 550px) {

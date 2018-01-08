@@ -202,8 +202,8 @@ class Plot3D extends Component {
 
         return(
         <div className = 'section plots' id = 'plotContainer'>
-            <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>Plots</h3>
-            {(this.props.plot) ? plotContainers : <p><i class="fa fa-exclamation-circle" aria-hidden="true"></i>{noPlots}</p>}
+            <h3><i className="fa fa-file-text-o" aria-hidden="true"></i>Plots</h3>
+            {(this.props.plot) ? plotContainers : <p><i className="fa fa-exclamation-circle" aria-hidden="true"></i>{noPlots}</p>}
 
 
         </div>

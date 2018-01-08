@@ -51,6 +51,13 @@ const About = function(props) {
                             <a rel="noopener noreferrer" target = '_blank' href="https://www.npmjs.com/package/cubic-spline">cubic-spline</a>
                         </li>
                     </ul>
+                <p>
+                    For plots interpolation, external package was developed. As it was found to be quite useful and universal, it finally was published to npm:
+                </p>
+                   <ul>
+                       <li> <a rel="noopener noreferrer" target = '_blank' href="https://www.npmjs.com/package/2d-bicubic-interpolate">2d-bicubic-interpolate</a></li>
+                   </ul>
+                   
                     
                 
             </div >
