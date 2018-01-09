@@ -1,6 +1,5 @@
 .footer {
   border-top: rgba(0, 0, 0, 0.35) 3px solid;
-  z-index: 2;
   grid-area: footer;
   display: flex;
   align-items: flex-start;

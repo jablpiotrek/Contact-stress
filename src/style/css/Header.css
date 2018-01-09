@@ -1,5 +1,4 @@
 .header {
-  z-index: 2;
   grid-area: header;
   background-color: rgba(0, 0, 0, 0.35);
   display: flex;
@@ -26,8 +25,7 @@
     display: flex;
     border-bottom: rgba(0, 0, 0, 0.35) solid 3px;
     margin: 0.5rem 0 0 0;
-    padding: 0;
-    z-index: 2; }
+    padding: 0; }
     .header nav a {
       text-align: center;
       transition: 0.5s;
