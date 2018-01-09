@@ -19,7 +19,9 @@
       .header .title img {
         height: 50px; }
       .header .title h1 {
-        font-size: 1.5rem; } }
+        font-size: 1.5rem;
+        line-height: 1.7rem;
+        text-align: center; } }
   .header nav {
     display: flex;
     border-bottom: rgba(0, 0, 0, 0.35) solid 3px;
