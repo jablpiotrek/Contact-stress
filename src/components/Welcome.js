@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Slider from 'react-slick';
-import '../style/css/Welcome.css';
 
 export default class Welcome extends Component {
     render() {

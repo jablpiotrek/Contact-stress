@@ -1,11 +1,11 @@
 .footer {
-  border-top: rgba(0, 0, 0, 0.35) 3px solid;
+  border-top: rgba(0, 0, 0, 0.4) 3px solid;
   grid-area: footer;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   padding: 0 10px;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.4);
   box-shadow: 0px -12px 37px -12px rgba(0, 0, 0, 0.66); }
   .footer div ul {
     list-style: none;

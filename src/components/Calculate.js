@@ -8,7 +8,7 @@ import interp from 'ndarray-linear-interpolate';
 
 import Table from './Table.js';
 
-import '../style/css/Calculate.css';
+
 
 
 import {tempOptions} from './_selectOptions.js';

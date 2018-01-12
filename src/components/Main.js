@@ -15,7 +15,6 @@ import Plot from './Plot.js';
 import Data from './Data.js';
 import About from './About.js';
 
-import '../style/css/Main.css';
 
 const PATH = './data.txt';
 

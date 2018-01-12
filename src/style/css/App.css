@@ -8,16 +8,19 @@ nav > a {
   color: gainsboro; }
   nav > a:visited, nav > a:hover, nav > a:active {
     color: gainsboro; }
+  @media screen and (max-width: 550px) {
+    nav > a {
+      font-size: 1rem; } }
 
 h1, h2, h3, h4, p, a, label {
   color: gainsboro; }
 
 h1, h2 {
   font-family: 'Inknut Antiqua', serif;
-  text-shadow: 2px 2px 8px black; }
+  text-shadow: 2px 2px 8px #000000; }
 
 h3 {
-  text-shadow: 2px 2px 8px black; }
+  text-shadow: 2px 2px 8px #000000; }
 
 p {
   text-align: justify;
@@ -82,10 +85,10 @@ input.error {
 
 .container {
   padding: 30px;
-  background-color: rgba(0, 0, 0, 0.35);
-  border-top: 3px solid rgba(0, 0, 0, 0.35);
-  border-bottom: 3px solid rgba(0, 0, 0, 0.35);
-  box-shadow: 10px 10px 37px -5px rgba(0, 0, 0, 0.66);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-top: 3px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 6px 6px 37px -5px rgba(0, 0, 0, 0.66);
   z-index: 2; }
   .container h2 {
     margin: 0 0 2rem 0; }
@@ -101,9 +104,9 @@ input.error {
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 1rem;
-    border-top: 3px solid rgba(0, 0, 0, 0.35);
-    border-bottom: 3px solid rgba(0, 0, 0, 0.35);
-    background-color: rgba(0, 0, 0, 0.35);
+    border-top: 3px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 2; }
     .container .section ul {
       list-style: none; }
@@ -152,5 +155,4 @@ input.error {
     position: fixed;
     width: 100%;
     height: 100vh;
-    z-index: -1;
-    transition: filter 3s ease-in-out; }
+    z-index: -1; }

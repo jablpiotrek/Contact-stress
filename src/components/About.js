@@ -9,7 +9,7 @@ import visLogo from '../images/vis.png';
 import gitHubLogo from '../images/octocat.png' ;
 
 
-import '../style/css/About.css';
+
 const About = function(props) {
     return (
         <div className = 'container about'>

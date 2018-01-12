@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import UNSWLogo from '../images/UNSW.png';
-import '../style/css/Header.css';
 import { NavLink} from 'react-router-dom';
 
 export default class  Header extends Component {

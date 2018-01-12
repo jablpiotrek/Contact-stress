@@ -5,7 +5,6 @@ import {updateData} from '../actions/actions.js';
 
 import Table from './Table.js';
 
-import '../style/css/Data.css';
 const noPlots = 'No plots to display. ';
 class Data extends Component {
     

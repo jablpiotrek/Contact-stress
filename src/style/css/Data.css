@@ -5,9 +5,9 @@ div.section.upload {
     border: none; }
 
 .section-table {
-  background-color: rgba(0, 0, 0, 0.35);
-  border-top: 3px solid rgba(0, 0, 0, 0.35);
-  border-bottom: 3px solid rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-top: 3px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.4);
   padding: 1rem;
   margin: 1rem 0 0 0; }
   .section-table h3 {
@@ -19,7 +19,7 @@ div.section.upload {
     .section-table .ReactTable div.rt-td {
       text-align: center; }
 
-.ReactTable .-pagination .-btn {
+.ReactTable .-pagination button.-btn {
   color: gainsboro;
   margin: 0; }
 

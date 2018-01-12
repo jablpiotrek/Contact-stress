@@ -3,7 +3,6 @@ import {
   Link
 } from 'react-router-dom';
 
-import '../style/css/Footer.css';
 
 const Footer = function (props) {
     return (

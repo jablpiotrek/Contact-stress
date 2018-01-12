@@ -4,8 +4,23 @@ import { createStore } from 'redux';
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
+
+    
+//importing all the style files at one point, as create-react-app dont use locally-scoped css so no difference where to import it
     
 import '../style/css/App.css';
+import '../style/css/About.css';
+import '../style/css/Calculate.css';
+import '../style/css/Data.css';
+import '../style/css/Footer.css';
+import '../style/css/Header.css';
+import '../style/css/Main.css';
+import '../style/css/Plot.css';
+import '../style/css/Plot3D.css';
+import '../style/css/Welcome.css';    
+
+    
+    
 import reducers from '../reducers/reducers.js';
 
 import Header from './Header.js';
@@ -15,14 +30,7 @@ import Footer from './Footer.js';
 let store = createStore(reducers);
 
 export default class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            hue: 'hue-rotate(0deg)',
-            val: 0
-        }; 
 
-    }
     
     
     render() {
@@ -35,9 +43,6 @@ export default class App extends Component {
                             <Footer />
                             <div  
                                 className = 'background' 
-                                style = {{
-                                    filter: this.state.hue
-                                }}
                             >
                            </div>
                         </div>

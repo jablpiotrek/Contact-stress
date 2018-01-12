@@ -5,7 +5,6 @@ import {Graph3d} from 'vis';
 
 import interpolateArray from '2d-bicubic-interpolate';
 
-import '../style/css/Plot3D.css';
 const noPlots = 'No plots to display. Set input parameters and hit "Calculate"!';
 
 class Plot3D extends Component {

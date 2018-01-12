@@ -6,8 +6,6 @@ import {tempOptions, thicknessOptions, radiusOptions, plotOptions, interpOptions
 
 import Plot3D from './Plot3D.js';
 
-import '../style/css/Plot.css';
-
 class Plot extends Component{
    
     renderSecondSelect(type) {
