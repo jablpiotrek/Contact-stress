@@ -151,7 +151,7 @@ input.error {
     .app {
       grid-template-columns: 1fr 10fr 1fr; } }
   .app div.background {
-    background-image: url("../../images/background.png");
+    background-image: url("../../images/background.jpg");
     background-size: cover;
     background-attachment: fixed;
     position: fixed;
