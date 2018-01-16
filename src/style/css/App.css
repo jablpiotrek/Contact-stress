@@ -8,7 +8,7 @@ nav > a {
   color: gainsboro; }
   nav > a:visited, nav > a:hover, nav > a:active {
     color: gainsboro; }
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 650px) {
     nav > a {
       font-size: 1rem; } }
 
@@ -127,6 +127,8 @@ input.error {
         width: 5rem; }
       .container .section div select.big {
         width: 10rem; }
+      .container .section div select.very-big {
+        width: 14rem; }
   .container .buttons {
     grid-column: 1/4;
     grid-row: 2/3;
@@ -141,7 +143,7 @@ input.error {
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 20px 6fr 20px;
   grid-gap: 20px; }
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 650px) {
     .app {
       grid-template-columns: 1fr;
       grid-template-areas: 'header' 'main' 'footer'; } }

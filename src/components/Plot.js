@@ -7,7 +7,16 @@ import {tempOptions, thicknessOptions, radiusOptions, plotOptions, interpOptions
 import Plot3D from './Plot3D.js';
 
 class Plot extends Component{
-   
+    getResultsList(data) {
+        
+        const list = data.data[0].slice(5,data.data[0].length).map((e, index) => {
+            return {
+                label: e,
+                value: index
+            };
+        });
+        return list;
+    }
     renderSecondSelect(type) {
         switch (type) {
             case 1:
@@ -40,6 +49,10 @@ class Plot extends Component{
         }
     }
     render(){
+        let resultsToDisplay = [];
+        if (this.props.data) {
+            resultsToDisplay = this.getResultsList(this.props.data);
+        }
         return (
             <div className = 'container plot'>
                 <h2><i className="fa fa-area-chart" aria-hidden="true"></i>Plot</h2>
@@ -47,7 +60,7 @@ class Plot extends Component{
                         onSubmit = {(values) => {
                             this.props.updatePlot(values);
                         }}
-                        defaultValues = {{interp: 0, type: 1, r: 14, h: 0.1, t: 22}}
+                        defaultValues = {{interp: 0, type: 1, r: 14, h: 0.1, t: 22, resultToDisplay : 0}}
                     >
                         {formApi => (
                             <form onSubmit =  {formApi.submitForm} >
@@ -69,6 +82,15 @@ class Plot extends Component{
                                             options = {interpOptions}
                                         />
                                     </div>
+                                    <div>
+                                        <label htmlFor="resultToDisplay">Select result to display:</label>
+                                        <Select
+                                            className = 'very-big'
+                                            field = 'resultToDisplay'
+                                            options = {resultsToDisplay}
+                                        />
+                                    </div>
+                                    
                                 </div>
                                 <div className = 'section buttons'>
                                     <button className = 'action' type = 'submit'><i className="fa fa-pencil" aria-hidden="true"></i>

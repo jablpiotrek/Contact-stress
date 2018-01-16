@@ -14,7 +14,7 @@
       height: 70px; }
     .header .title h1 {
       margin: 0 20px; }
-    @media screen and (max-width: 550px) {
+    @media screen and (max-width: 650px) {
       .header .title img {
         height: 50px; }
       .header .title h1 {
@@ -36,7 +36,7 @@
       text-transform: uppercase; }
       .header nav a:hover {
         background-color: rgba(0, 0, 0, 0.4); }
-      @media screen and (min-width: 550px) {
+      @media screen and (min-width: 650px) {
         .header nav a:nth-last-child(1) {
           margin-right: 5rem; }
         .header nav a:nth-child(1) {

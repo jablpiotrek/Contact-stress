@@ -2,7 +2,7 @@
   padding: 0 2rem !important;
   margin-bottom: 2rem !important;
   width: 100%; }
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 650px) {
     .plots div.plot-area {
       padding: 0 1rem !important; } }
   .plots div.plot-area div {

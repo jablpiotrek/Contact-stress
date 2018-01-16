@@ -10,7 +10,7 @@
   grid-column: 1/4;
   grid-row: 2/3; }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
   .calculate form .geometry {
     grid-column: 1/4;
     grid-row: 1/2; }

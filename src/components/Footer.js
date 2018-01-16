@@ -5,9 +5,15 @@ import {
 
 
 const Footer = function (props) {
+    
+    const d = new Date();
+    const copyrightNotice = 'Copyright \u00A9 ' + d.getFullYear() + '. All rights reserved.' ;
+    
+    
     return (
         <div className = 'footer'>
-            <div>
+
+                <div>
                 <h3>Menu</h3>
                 <ul>
                     <li><Link to = '/'>Home</Link></li>
@@ -24,6 +30,11 @@ const Footer = function (props) {
                     <li><a rel="noopener noreferrer" target = '_blank' href="https://www.linkedin.com/in/piotr-jablonski-008b2799/">Find me on LinkedIn</a></li>
                 </ul>
             </div>
+            <div className = 'version'>
+               <p>{copyrightNotice}</p>
+               <p>ver. 1.0.1</p>
+            </div>
+            
         </div>
     );
 }

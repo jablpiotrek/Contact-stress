@@ -9,11 +9,22 @@
     padding: 0 10px;
     background-color: $bckgColor;
     box-shadow: 0px -12px 37px -12px rgba(0,0,0,0.66);
+    flex-wrap: wrap;
     div {
 
         ul {
             list-style: none;
             padding: 0;
+        }
+    }
+    div.version {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        p {
+            margin: 0.2rem;
+            font-size: 0.8rem;
         }
     }
 

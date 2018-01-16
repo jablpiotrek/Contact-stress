@@ -6,7 +6,16 @@
   justify-content: space-between;
   padding: 0 10px;
   background-color: rgba(0, 0, 0, 0.4);
-  box-shadow: 0px -12px 37px -12px rgba(0, 0, 0, 0.66); }
+  box-shadow: 0px -12px 37px -12px rgba(0, 0, 0, 0.66);
+  flex-wrap: wrap; }
   .footer div ul {
     list-style: none;
     padding: 0; }
+  .footer div.version {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center; }
+    .footer div.version p {
+      margin: 0.2rem;
+      font-size: 0.8rem; }
