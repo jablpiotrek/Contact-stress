@@ -139,6 +139,7 @@ class Plot3D extends Component {
             style: 'surface',
             keepAspectRatio: false,
             tooltip: false,
+            showLegend: true,
             showPerspective: true,
             showGrid: true,
             showShadow: false,
@@ -147,14 +148,14 @@ class Plot3D extends Component {
             verticalRatio: 0.4,
             xLabel: xLabel,
             yLabel: yLabel,
-            zLabel: 'MPa'
+            zLabel: '[MPa]'
         };
         let graph3d = [];
         
         for (let i = 0; i < plot.titles.length; i++) {
             let container = document.getElementById('plot3d_' + i);
-
             graph3d.push(new Graph3d(container, plot.data[i], options));
+
 
         }
         
@@ -186,7 +187,6 @@ class Plot3D extends Component {
     }
 
     render(){
-
         let plotContainers =[];
         if (this.props.data && this.props.plot) {
             for (let i = 0; i < this.props.data.data[0].length - 5; i++) {
@@ -198,7 +198,6 @@ class Plot3D extends Component {
                     </div>);
             }
         }
-
         return(
         <div className = 'section plots' id = 'plotContainer'>
             <h3><i className="fa fa-file-text-o" aria-hidden="true"></i>Plots</h3>

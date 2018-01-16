@@ -20,7 +20,6 @@ import '../style/css/Plot3D.css';
 import '../style/css/Welcome.css';    
 
     
-    
 import reducers from '../reducers/reducers.js';
 
 import Header from './Header.js';

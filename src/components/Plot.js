@@ -39,7 +39,6 @@ class Plot extends Component{
                 );
         }
     }
-   
     render(){
         return (
             <div className = 'container plot'>
