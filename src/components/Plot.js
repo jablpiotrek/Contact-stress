@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Form, Select} from 'react-form';
 import {updatePlot} from '../actions/actions.js';
 import {tempOptions, thicknessOptions, radiusOptions, plotOptions, interpOptions} from './_selectOptions.js';
+import {downloadCanvas} from 'download-canvas';
 
 import Plot3D from './Plot3D.js';
 
@@ -16,6 +17,27 @@ class Plot extends Component{
             };
         });
         return list;
+    }
+    saveChart() {
+        const canvas = document.getElementsByTagName('canvas')[0];
+        const options = {
+            name : 'plot',
+            type : 'jpg',
+            qualiy: 1
+        }
+        if (canvas) {
+            let context = canvas.getContext('2d');
+            let w = canvas.width;
+            let h = canvas.height;
+            context.globalCompositeOperation = "destination-over";
+            context.fillStyle = 'white';
+            context.fillRect(0,0,w,h);
+            
+            
+            downloadCanvas(canvas, options);
+        
+        
+        };
     }
     renderSecondSelect(type) {
         switch (type) {
@@ -95,6 +117,7 @@ class Plot extends Component{
                                 <div className = 'section buttons'>
                                     <button className = 'action' type = 'submit'><i className="fa fa-pencil" aria-hidden="true"></i>
 Draw Plot</button>
+                                    <button className = 'action' type = 'button' onClick = {this.saveChart}><i className="fa fa-floppy-o" aria-hidden="true"></i>Capture plot</button>
                                 </div>
                             </form>
                         )}

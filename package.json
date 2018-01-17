@@ -6,6 +6,7 @@
   "dependencies": {
     "2d-bicubic-interpolate": "^1.0.3",
     "cubic-spline": "^1.0.4",
+    "download-canvas": "^1.0.2",
     "jquery": "^3.2.1",
     "ndarray": "^1.0.18",
     "ndarray-linear-interpolate": "^1.0.0",

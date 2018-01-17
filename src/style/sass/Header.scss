@@ -20,8 +20,9 @@
         }
         h1 {
             margin: 0 20px;
+            line-height: 2.2rem;
         }
-        @media screen and(max-width: $small) {
+        @media screen and(max-width: $medium) {
             img {
                 height: 50px;
             }
@@ -41,34 +42,39 @@
         margin: 0.5rem 0 0 0;
         padding: 0;
 
-        
-            a {
-                text-align: center;
-                transition: 0.5s;
-                display: block;
-                width: 100%;
-                flex: 1;
-                padding: 0.5rem 0.6rem;
-                text-transform: uppercase;
 
-                &:hover {
-                    background-color: $bckgColor;
-                }
+        a {
+            text-align: center;
+            transition: 0.5s;
+            display: block;
+            width: 100%;
+            flex: 1;
+            padding: 0.5rem 0.6rem;
+            text-transform: uppercase;
 
-                @media screen and(min-width: $small) {
-                    &:nth-last-child(1) {
-                        margin-right: 5rem;
-                    }
-                    &:nth-child(1) {
-                        margin-left: 5rem;
-                    }
-                }
-
-
+            &:hover {
+                background-color: $bckgColor;
             }
-                        a.active {
-                    background-color: $bckgColor;
+
+            @media screen and(min-width: $small) {
+                &:nth-last-child(1) {
+                    margin-right: 5rem;
                 }
-        
+                &:nth-child(1) {
+                    margin-left: 5rem;
+                }
+            }
+            @media screen and(max-width: $medium) {
+                span {
+                    display: none;
+                }
+            }
+
+
+        }
+        a.active {
+            background-color: $bckgColor;
+        }
+
     }
 }
