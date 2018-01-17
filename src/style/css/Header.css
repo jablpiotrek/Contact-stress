@@ -22,6 +22,11 @@
         font-size: 1.5rem;
         line-height: 1.7rem;
         text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .header .title img {
+        height: 40px; }
+      .header .title h1 {
+        font-size: 1.2rem; } }
   .header nav {
     display: flex;
     border-bottom: rgba(0, 0, 0, 0.4) solid 3px;
