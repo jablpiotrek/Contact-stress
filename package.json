@@ -2,7 +2,7 @@
   "name": "contact-stress",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jablp.x10host.com",
+  "homepage": "http://jablp.x10host.com/CSC",
   "dependencies": {
     "2d-bicubic-interpolate": "^1.0.3",
     "cubic-spline": "^1.0.4",

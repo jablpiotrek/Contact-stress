@@ -3,14 +3,14 @@
 @import '_input.scss';
 
 .container {
-    padding: 30px;
+    padding: 10px;
     background-color: $bckgColor;
     border-top: 3px solid $borderColor;
     border-bottom: 3px solid $borderColor;
     box-shadow: 6px 6px 37px -5px rgba(0,0,0,0.66);
     z-index: 2;
     h2 {
-        margin: 0 0 2rem 0;
+        margin: 0 ;
     }
     form {
         display: grid;

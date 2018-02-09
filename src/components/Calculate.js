@@ -194,6 +194,7 @@ class Calculate extends Component {
                         <Table 
                             data = {table_0.data}
                             headers = {table_0.headers}
+                            defaultPageSize = {5}
                         />: <p><i  className="fa fa-exclamation-circle" aria-hidden="true"></i>{noResults}</p>}
                 </div>
 

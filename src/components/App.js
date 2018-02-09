@@ -35,7 +35,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store = {store}>
-                   <Router>
+                   <Router basename = '/CSC'>
                         <div className = 'app'>
                             <Header />
                             <Main />

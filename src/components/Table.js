@@ -9,6 +9,7 @@ export default class Table extends Component {
             <ReactTable 
                 columns ={this.props.headers}
                 data = {this.props.data}
+                defaultPageSize = {this.props.defaultPageSize}
             />
         );
     }
