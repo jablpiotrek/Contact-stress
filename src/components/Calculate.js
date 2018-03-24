@@ -21,7 +21,7 @@ const formValidator = (values) => {
         });
     }
 
-class Calculate extends Component {
+export class Calculate extends Component {
     
     constructor(props) {
         super(props);
