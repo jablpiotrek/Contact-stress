@@ -1,31 +1,20 @@
-import React, {
-    Component
-} from 'react';
-import {
-    connect
-} from 'react-redux';
-
-import {
-    Graph3d
-} from 'vis';
-
-import interpolateArray from '2d-bicubic-interpolate';
-
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Graph3d} from 'vis';
+import {interpolateArray} from '2d-bicubic-interpolate';
 const noPlots = 'No plot to display. Set input parameters and hit "Draw Plot"!';
-
 class Plot3D extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             plotWidth: 400
         };
-        this.handleResize = this.handleResize.bind(this);
+        this.handleResize = this
+            .handleResize
+            .bind(this);
     }
-
     prepareDataForPlot3D(rawData, plotParameters) {
         // create array fo parametres names
-
         let data = rawData.data;
         //remove unneded columns and first row
         data = data.slice(1, data.length);
@@ -47,7 +36,6 @@ class Plot3D extends Component {
         data = data.map(row => {
             return row.slice(1, row.length);
         })
-
         switch (plotParameters.type) {
             case 1:
                 data = data.filter((row) => {
@@ -78,35 +66,28 @@ class Plot3D extends Component {
                 break;
             default:
                 break;
-
-
-
         }
         data.sort((a, b) => {
             //sort firstly by 1st column, if equal then sort by second column
             return a[0] - b[0] || a[1] - b[1];
         });
         //split array into arrays for each paramater and create objects of x:, y: , z:
-
         let dataSet = [];
         dataSet = data.map(row => {
             return ({
                 x: row[0],
                 y: row[1],
-                z: row[2 + plotParameters.resultToDisplay],
+                z: row[2 + plotParameters.resultToDisplay]
             });
         })
-
-
         dataSet = interpolateArray(dataSet, plotParameters.interp);
-
         return dataSet;
-
     }
-
     handleResize() {
         this.setState({
-            plotWidth: document.getElementById('plotContainer').clientWidth * 0.8
+            plotWidth: document
+                .getElementById('plotContainer')
+                .clientWidth * 0.8
         });
     }
     renderPlot(data, type) {
@@ -152,68 +133,58 @@ class Plot3D extends Component {
         };
         let container = document.getElementById('plot3d_');
         new Graph3d(container, data, options);
-
     }
     componentDidUpdate() {
-
         if (this.props.data && this.props.plot) {
             let data = this.prepareDataForPlot3D(this.props.data, this.props.plot);
             this.renderPlot(data, this.props.plot.type);
         }
-
     }
     componentDidMount() {
         window.addEventListener("resize", this.handleResize);
         this.setState({
-            plotWidth: document.getElementById('plotContainer').clientWidth
+            plotWidth: document
+                .getElementById('plotContainer')
+                .clientWidth
         });
-
         if (this.props.data && this.props.plot) {
             let plot = this.prepareDataForPlot3D(this.props.data, this.props.plot);
             this.renderPlot(plot, this.props.plot.type);
         }
-
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         window.removeEventListener("resize", this.handleResize);
     }
-
-    render(){
+    render() {
         /*
         let plotContainers =[];
         if (this.props.data && this.props.plot) {
             for (let i = 0; i < this.props.data.data[0].length - 5; i++) {
                 plotContainers.push(
                     <div className = 'plot-area' key = {i}>
-                        
-
                     </div>);
             }
         }
         */
-        const plotContainer = 
-            <div className = 'plot-area' >
-                <h4>{this.props.data && this.props.plot? this.props.data.data[0][this.props.plot.resultToDisplay + 5] : null}</h4>
-                <div id = {'plot3d_'}></div>
-            </div> ;
-        return(
-        <div className = 'section plots' id = 'plotContainer'>
-            <h3><i className="fa fa-file-text-o" aria-hidden="true"></i>Plot</h3>
-            {(this.props.plot) ? plotContainer : <p><i className="fa fa-exclamation-circle" aria-hidden="true"></i>{noPlots}</p>}
-
-
-        </div>
-
+        const plotContainer = <div className='plot-area'>
+            <h4>{this.props.data && this.props.plot
+                    ? this.props.data.data[0][this.props.plot.resultToDisplay + 5]
+                    : null}</h4>
+            <div id={'plot3d_'}></div>
+        </div>;
+        return (
+            <div className='section plots' id='plotContainer'>
+                <h3>
+                    <i className="fa fa-file-text-o" aria-hidden="true"></i>Plot</h3>
+                {(this.props.plot)
+                    ? plotContainer
+                    : <p>
+                        <i className="fa fa-exclamation-circle" aria-hidden="true"></i>{noPlots}</p>}
+            </div>
         );
     }
-
 }
-
 function mapStateToProps(state) {
-    return({
-        data: state.data,
-        plot: state.plot
-    });
+    return ({data: state.data, plot: state.plot});
 }
-
 export default connect(mapStateToProps)(Plot3D);
