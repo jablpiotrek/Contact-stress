@@ -32,7 +32,7 @@ const Footer = function (props) {
             </div>
             <div className = 'version'>
                <p>{copyrightNotice}</p>
-               <p>ver. 1.0.5</p>
+               <p>ver. 1.0.6</p>
             </div>
             
         </div>
