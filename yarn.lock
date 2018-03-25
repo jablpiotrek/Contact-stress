@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"2d-bicubic-interpolate@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/2d-bicubic-interpolate/-/2d-bicubic-interpolate-1.0.5.tgz#c822d384c698403d1d6a6a538225dfee36035b06"
+"2d-bicubic-interpolate@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/2d-bicubic-interpolate/-/2d-bicubic-interpolate-1.0.6.tgz#45672e0ef86ec16926e5300c93b4a64bc88fbeaf"
   dependencies:
     cubic-spline "^1.0.4"
     split-array "^1.0.1"

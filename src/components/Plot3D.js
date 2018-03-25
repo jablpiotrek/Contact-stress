@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Graph3d} from 'vis';
-import {interpolateArray} from '2d-bicubic-interpolate';
+import interpolateArray from '2d-bicubic-interpolate';
 const noPlots = 'No plot to display. Set input parameters and hit "Draw Plot"!';
 class Plot3D extends Component {
     constructor(props) {
